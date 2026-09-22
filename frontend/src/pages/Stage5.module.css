@@ -1,0 +1,118 @@
+.page {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.toolbar,
+.actions,
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.tabs {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.tab {
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  font-weight: 700;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tabActive {
+  border-bottom-color: var(--module-accent, var(--color-accent));
+  color: var(--module-accent, var(--color-text));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-4);
+}
+
+.metric {
+  min-height: 7.5rem;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.metric:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.metricLabel {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+.metricValue {
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--module-gradient, var(--gradient-brand));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.meta {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-3);
+}
+
+.detailGrid dt {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.detailGrid dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-3);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.error {
+  color: var(--color-danger);
+}
+
+@media (max-width: 640px) {
+  .grid,
+  .detailGrid,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

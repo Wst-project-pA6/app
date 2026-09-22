@@ -1,0 +1,79 @@
+.header {
+  height: var(--shell-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-4);
+  background: var(--shell-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 95;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background-color var(--transition-fast);
+}
+
+.iconButton:hover {
+  background: rgb(var(--color-brand-rgb) / 0.1);
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand);
+  color: var(--color-text-on-brand);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.appName {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 800;
+  font-size: var(--font-size-lg);
+  letter-spacing: -0.01em;
+  background: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .desktopOnly {
+    display: inline-flex;
+  }
+
+  .left > .iconButton:not(.desktopOnly) {
+    display: none;
+  }
+}

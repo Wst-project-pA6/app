@@ -1,0 +1,22 @@
+.publicPage {
+  min-height: 100vh;
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+  overflow-wrap: anywhere;
+  align-content: start;
+  background-image:
+    var(--grid-pattern), radial-gradient(600px 360px at 50% -10%, rgb(var(--color-brand-rgb) / 0.1), transparent 60%);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    auto;
+  background-attachment: local, fixed;
+  background-repeat: repeat, no-repeat;
+}
+
+.publicPage dd {
+  margin-inline-start: 0;
+  margin-block-end: var(--space-3);
+}

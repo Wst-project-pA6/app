@@ -1,0 +1,91 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  /* The mobile nav drawer (Sidebar.module.css) sits off-canvas via
+     `transform: translateX(-100%)` when closed. A `position: fixed`
+     descendant escapes an ordinary ancestor's `overflow` clipping — only
+     the root scrolling element's overflow actually clips it — so without
+     this a touch/trackpad horizontal swipe on a narrow viewport reveals
+     blank space and the edge of the closed drawer, even though `body`
+     itself never overflows. */
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-3) 0;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 var(--space-3) 0;
+}
+
+a {
+  color: var(--color-link);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Directionally-stable identifiers: UUIDs, VINs, plates, job/PO/invoice
+   numbers, SKUs, tokens and monetary amounts must never mirror in RTL. */
+.dir-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Visible focus ring, consistent across interactive elements. */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[dir='rtl'] .dir-ltr {
+  display: inline-block;
+}
+
+/* Theming hook only — never participates in layout. */
+.module-theme-root {
+  display: contents;
+}

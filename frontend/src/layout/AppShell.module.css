@@ -1,0 +1,63 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.skipLink {
+  position: absolute;
+  top: -3rem;
+  inset-inline-start: var(--space-4);
+  background: var(--module-accent, var(--color-brand-700));
+  color: var(--color-text-on-brand);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  z-index: 200;
+  transition: top var(--transition-fast);
+}
+
+.skipLink:focus-visible {
+  top: var(--space-2);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  inset: var(--shell-header-height) 0 0 0;
+  background: rgb(10 12 16 / 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 85;
+}
+
+@media (min-width: 64rem) {
+  .overlay {
+    display: none;
+  }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-5);
+  position: relative;
+  background-image:
+    var(--grid-pattern), radial-gradient(720px 420px at 8% -8%, rgb(var(--module-accent-rgb) / 0.09), transparent 60%),
+    radial-gradient(640px 380px at 96% 0%, rgb(var(--color-brand-rgb) / 0.06), transparent 55%);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    auto,
+    auto;
+  background-attachment: local, fixed, fixed;
+  background-repeat: repeat, no-repeat, no-repeat;
+}
+
+.main > * {
+  position: relative;
+  z-index: 1;
+}

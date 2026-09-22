@@ -1,0 +1,298 @@
+/*
+ * Design tokens for the WST design system: a premium, futuristic automotive
+ * platform look — deep graphite dark theme (default feel) plus a fully
+ * polished light theme, coordinated per-module accent systems, glass/brushed
+ * surfaces, ambient gradient glows and a subtle technical grid texture.
+ *
+ * Module accents (`--module-*`) are set by `[data-module="…"]` below and
+ * consumed by shared components (Button, PageHeader, Tabs, StatusBadge,
+ * Sidebar, JobStageStepper, …) via `var(--module-accent, var(--color-brand-500))`
+ * so any screen outside a themed module still renders sensibly.
+ */
+:root {
+  /* Brand (dashboard / cross-module identity) */
+  --color-brand-50: #eef6fb;
+  --color-brand-100: #d9ecf6;
+  --color-brand-300: #7fc4e6;
+  --color-brand-500: #1c8fc9;
+  --color-brand-600: #0f6fa3;
+  --color-brand-700: #0b567f;
+  --color-brand-rgb: 28 143 201;
+  --color-accent-400: #f4b942;
+  --color-accent-500: #e0a52c;
+  --color-accent-600: #b9821a;
+  --color-accent-100: #fdf3df;
+  /* Legacy bare aliases kept for pages written before the accent scale existed. */
+  --color-accent: var(--color-accent-500);
+  --color-danger: var(--color-danger-500);
+
+  /* Neutrals (light theme: clean, crisp graphite-on-white) */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f6f7f9;
+  --color-neutral-100: #eceef2;
+  --color-neutral-200: #dde1e7;
+  --color-neutral-300: #c2c8d1;
+  --color-neutral-400: #99a1ad;
+  --color-neutral-500: #6b7480;
+  --color-neutral-600: #4d5560;
+  --color-neutral-700: #333941;
+  --color-neutral-800: #1e2128;
+  --color-neutral-900: #12141a;
+
+  /* Semantic */
+  --color-success-500: #17924e;
+  --color-success-100: #e1f4ea;
+  --color-success-rgb: 23 146 78;
+  --color-warning-500: #b3760a;
+  --color-warning-100: #fdf1dc;
+  --color-warning-rgb: 179 118 10;
+  --color-danger-500: #c8322a;
+  --color-danger-100: #fbe6e4;
+  --color-danger-rgb: 200 50 42;
+  --color-info-500: #1c8fc9;
+  --color-info-100: #eef6fb;
+
+  --color-bg: var(--color-neutral-50);
+  --color-surface: var(--color-neutral-0);
+  --color-surface-raised: var(--color-neutral-0);
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-text-on-brand: #ffffff;
+  --color-link: var(--color-brand-600);
+  --color-focus-ring: #0f6fa3;
+
+  /* Glass / brushed-metal surface (light theme: soft frosted panel) */
+  --glass-bg: rgb(255 255 255 / 0.72);
+  --glass-border: rgb(255 255 255 / 0.6);
+  --glass-blur: 16px;
+  --shell-surface: rgb(255 255 255 / 0.86);
+
+  /* Automotive-inspired gradients for hero surfaces, stage markers and accents. */
+  --gradient-brand: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-700));
+  --gradient-accent: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+  --gradient-surface: linear-gradient(180deg, var(--color-neutral-0), var(--color-neutral-50));
+
+  /* Technical grid texture (very low-contrast graph lines). */
+  --grid-line: rgb(20 30 45 / 0.05);
+  --grid-pattern:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  --grid-size: 32px;
+
+  /* Typography */
+  --font-family-base: 'Segoe UI', system-ui, -apple-system, 'Noto Sans Arabic', 'Noto Sans', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgb(18 20 26 / 0.07);
+  --shadow-md: 0 6px 20px rgb(18 20 26 / 0.1);
+  --shadow-lg: 0 20px 48px rgb(18 20 26 / 0.16);
+  --shadow-glow: 0 0 0 1px rgb(var(--color-brand-rgb) / 0.25), 0 8px 24px rgb(var(--color-brand-rgb) / 0.18);
+
+  /* Layout */
+  --shell-header-height: 3.75rem;
+  --shell-sidebar-width: 16.5rem;
+  --shell-sidebar-width-collapsed: 4.25rem;
+
+  /* Motion */
+  --transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 360ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Module accent — default (brand) for anything outside a themed module. */
+  --module-accent-rgb: var(--color-brand-rgb);
+  --module-accent: var(--color-brand-500);
+  --module-accent-strong: var(--color-brand-700);
+  --module-gradient: var(--gradient-brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+}
+
+/* --- Module accent system --------------------------------------------- */
+/* Jobs / workshop workflow, and the operational entities that feed it
+   (customers, vehicles, bays): electric cyan + blue. */
+[data-module='jobs'],
+[data-module='customers'],
+[data-module='vehicles'],
+[data-module='bays'] {
+  --module-accent-rgb: 6 182 212;
+  --module-accent: #06b6d4;
+  --module-accent-strong: #0e7490;
+  --module-gradient: linear-gradient(135deg, #22d3ee, #2563eb);
+}
+/* Inventory / stock: emerald green. */
+[data-module='inventory'] {
+  --module-accent-rgb: 16 185 129;
+  --module-accent: #0f9d6e;
+  --module-accent-strong: #0b7a55;
+  --module-gradient: linear-gradient(135deg, #34d399, #0f9d6e);
+}
+/* Purchasing: amber + orange. */
+[data-module='purchasing'] {
+  --module-accent-rgb: 217 119 6;
+  --module-accent: #d97706;
+  --module-accent-strong: #9a5b0a;
+  --module-gradient: linear-gradient(135deg, #fb923c, #d97706);
+}
+/* Finance / invoices: violet + gold. */
+[data-module='invoices'] {
+  --module-accent-rgb: 124 58 237;
+  --module-accent: #7c3aed;
+  --module-accent-strong: #5b21b6;
+  --module-gradient: linear-gradient(135deg, #a78bfa, #d4a017);
+}
+/* Training: magenta + teal. */
+[data-module='training'] {
+  --module-accent-rgb: 219 39 119;
+  --module-accent: #db2777;
+  --module-accent-strong: #9d174d;
+  --module-gradient: linear-gradient(135deg, #ec4899, #0d9488);
+}
+/* AI / predictions: electric purple. */
+[data-module='predictions'] {
+  --module-accent-rgb: 147 51 234;
+  --module-accent: #9333ea;
+  --module-accent-strong: #6b21a8;
+  --module-gradient: linear-gradient(135deg, #c084fc, #7c3aed);
+}
+/* Security / access / audit: steel blue (red reserved for risk/error states). */
+[data-module='access'],
+[data-module='audit'] {
+  --module-accent-rgb: 71 105 146;
+  --module-accent: #476992;
+  --module-accent-strong: #2f4a68;
+  --module-gradient: linear-gradient(135deg, #64748b, #334155);
+}
+/* Reports / dashboards: cross-cutting, stays on the neutral brand identity. */
+
+/*
+ * Dark theme: deep graphite/near-black, layered surfaces. Applied
+ * automatically when the OS prefers dark (unless the user explicitly chose
+ * light), and always when the user explicitly chose dark via the theme
+ * toggle (`data-theme="dark"` on <html>, persisted by
+ * src/theme/ThemeProvider.tsx).
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-neutral-0: #1a1e26;
+    --color-neutral-50: #0b0d12;
+    --color-neutral-100: #12151c;
+    --color-neutral-200: #1c202a;
+    --color-neutral-300: #2a3038;
+    --color-neutral-400: #454d59;
+    --color-neutral-500: #6b7482;
+    --color-neutral-600: #98a1ad;
+    --color-neutral-700: #c2c8d1;
+    --color-neutral-800: #e1e4e9;
+    --color-neutral-900: #f4f6f8;
+
+    --color-brand-50: #0c1f2b;
+    --color-brand-100: #103048;
+    --color-brand-300: #3f8fbf;
+    --color-brand-500: #38b6f0;
+    --color-brand-600: #6fcdfb;
+    --color-brand-700: #a6e2ff;
+    --color-brand-rgb: 56 182 240;
+
+    --color-success-100: #0f2a1c;
+    --color-warning-100: #2c2007;
+    --color-danger-100: #2e1310;
+    --color-info-100: #0c1f2b;
+
+    --color-bg: var(--color-neutral-50);
+    --color-surface: var(--color-neutral-100);
+    --color-surface-raised: var(--color-neutral-200);
+    --color-border: var(--color-neutral-300);
+    --color-border-strong: var(--color-neutral-400);
+    --color-text: var(--color-neutral-900);
+    --color-text-muted: var(--color-neutral-600);
+    --color-link: var(--color-brand-600);
+    --color-focus-ring: #6fcdfb;
+
+    --glass-bg: rgb(24 28 36 / 0.62);
+    --glass-border: rgb(255 255 255 / 0.08);
+    --shell-surface: rgb(15 18 24 / 0.78);
+
+    --grid-line: rgb(140 175 210 / 0.06);
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 10px 28px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 28px 64px rgb(0 0 0 / 0.6);
+    --shadow-glow: 0 0 0 1px rgb(var(--color-brand-rgb) / 0.35), 0 0 28px rgb(var(--color-brand-rgb) / 0.28);
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-neutral-0: #1a1e26;
+  --color-neutral-50: #0b0d12;
+  --color-neutral-100: #12151c;
+  --color-neutral-200: #1c202a;
+  --color-neutral-300: #2a3038;
+  --color-neutral-400: #454d59;
+  --color-neutral-500: #6b7482;
+  --color-neutral-600: #98a1ad;
+  --color-neutral-700: #c2c8d1;
+  --color-neutral-800: #e1e4e9;
+  --color-neutral-900: #f4f6f8;
+
+  --color-brand-50: #0c1f2b;
+  --color-brand-100: #103048;
+  --color-brand-300: #3f8fbf;
+  --color-brand-500: #38b6f0;
+  --color-brand-600: #6fcdfb;
+  --color-brand-700: #a6e2ff;
+  --color-brand-rgb: 56 182 240;
+
+  --color-success-100: #0f2a1c;
+  --color-warning-100: #2c2007;
+  --color-danger-100: #2e1310;
+  --color-info-100: #0c1f2b;
+
+  --color-bg: var(--color-neutral-50);
+  --color-surface: var(--color-neutral-100);
+  --color-surface-raised: var(--color-neutral-200);
+  --color-border: var(--color-neutral-300);
+  --color-border-strong: var(--color-neutral-400);
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-link: var(--color-brand-600);
+  --color-focus-ring: #6fcdfb;
+
+  --glass-bg: rgb(24 28 36 / 0.62);
+  --glass-border: rgb(255 255 255 / 0.08);
+  --shell-surface: rgb(15 18 24 / 0.78);
+
+  --grid-line: rgb(140 175 210 / 0.06);
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+  --shadow-md: 0 10px 28px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 28px 64px rgb(0 0 0 / 0.6);
+  --shadow-glow: 0 0 0 1px rgb(var(--color-brand-rgb) / 0.35), 0 0 28px rgb(var(--color-brand-rgb) / 0.28);
+}

@@ -1,0 +1,18 @@
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 28rem;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}

@@ -1,0 +1,31 @@
+.select {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.select:hover:not(:disabled) {
+  border-color: var(--color-neutral-400);
+}
+
+.select:focus-visible {
+  outline: none;
+  border-color: var(--module-accent, var(--color-focus-ring));
+  box-shadow: 0 0 0 3px rgb(var(--module-accent-rgb) / 0.2);
+}
+
+.select[aria-invalid='true'] {
+  border-color: var(--color-danger-500);
+}
+
+.select:disabled {
+  background: var(--color-neutral-100);
+  cursor: not-allowed;
+}

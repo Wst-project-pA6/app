@@ -1,0 +1,72 @@
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 28rem;
+}
+
+.readonlyList {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.readonlyList dt {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.readonlyList dd {
+  margin: 0;
+}
+
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.roleList,
+.scopeList {
+  list-style: none;
+  margin: 0 0 var(--space-3) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.roleItem {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.roleDescription {
+  margin: var(--space-1) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.mutedCode {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}

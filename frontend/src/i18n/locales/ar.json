@@ -1,0 +1,1368 @@
+{
+  "training": {
+    "sections": {
+      "terms": "الفصول التدريبية",
+      "courses": "الدورات",
+      "mentors": "المرشدون",
+      "students": "الطلاب",
+      "groups": "مجموعات التدريب",
+      "enrollments": "التسجيلات",
+      "sessions": "جلسات التدريب",
+      "calendar": "تقويم التدريب",
+      "attendance": "الحضور",
+      "tasks": "المهام العملية",
+      "assessments": "التقييمات",
+      "competencies": "الكفاءات",
+      "certificates": "الشهادات",
+      "conflicts": "تعارضات الجدولة",
+      "transitions": "تغيير حالة الجلسة",
+      "record-attendance": "تسجيل الحضور",
+      "sign-off": "اعتماد المشرف",
+      "coverage": "تغطية الكفاءات",
+      "eligibility": "أهلية الإكمال",
+      "revoke": "إلغاء شهادة"
+    },
+    "actions": {
+      "listTrainingTerms": "الفصول التدريبية",
+      "createTrainingTerm": "إنشاء فصل",
+      "updateTrainingTerm": "تعديل الفصل",
+      "listCourses": "الدورات",
+      "createCourse": "إنشاء دورة",
+      "updateCourse": "تعديل الدورة",
+      "listMentors": "المرشدون",
+      "listStudents": "الطلاب",
+      "createStudent": "إضافة طالب",
+      "getStudent": "تفاصيل الطالب",
+      "updateStudent": "تعديل الطالب",
+      "getCompetencyCoverage": "عرض تغطية الكفاءات",
+      "getCompletionEligibility": "فحص أهلية الإكمال",
+      "listTrainingGroups": "مجموعات التدريب",
+      "createTrainingGroup": "إنشاء مجموعة",
+      "updateTrainingGroup": "تعديل المجموعة",
+      "listEnrollments": "التسجيلات",
+      "createEnrollment": "تسجيل طالب",
+      "updateEnrollment": "سحب التسجيل",
+      "listTrainingSessions": "جلسات التدريب",
+      "createTrainingSession": "إنشاء جلسة مسودة",
+      "getTrainingSession": "تفاصيل الجلسة",
+      "updateTrainingSession": "تعديل الجلسة",
+      "checkTrainingSessionConflicts": "فحص تعارضات الجدولة",
+      "createConflictOverrides": "اعتماد استثناء تعارض",
+      "transitionTrainingSession": "تغيير حالة الجلسة",
+      "recordSessionAttendance": "تسجيل الحضور",
+      "listAttendanceRecords": "سجلات الحضور",
+      "listPracticalTasks": "المهام العملية",
+      "createPracticalTask": "إنشاء مهمة عملية",
+      "updatePracticalTask": "تعديل المهمة العملية",
+      "listAssessments": "التقييمات",
+      "createAssessment": "تسجيل تقييم",
+      "updateAssessment": "مراجعة التقييم",
+      "signOffAssessment": "اعتماد المشرف",
+      "listCompetencies": "الكفاءات",
+      "createCompetency": "إنشاء كفاءة",
+      "updateCompetency": "تعديل الكفاءة",
+      "listCertificates": "الشهادات",
+      "issueCertificate": "إصدار شهادة",
+      "getCertificate": "تفاصيل الشهادة",
+      "revokeCertificate": "إلغاء شهادة",
+      "verifyCertificate": "التحقق من الشهادة"
+    },
+    "fields": {
+      "items": "العناصر",
+      "id": "المعرّف",
+      "createdAt": "تاريخ الإنشاء",
+      "updatedAt": "تاريخ التحديث",
+      "createdBy": "أنشأه",
+      "updatedBy": "حدّثه",
+      "organizationScopeId": "معرّف النطاق التنظيمي",
+      "name": "الاسم",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "status": "الحالة",
+      "page": "الصفحة",
+      "pageSize": "حجم الصفحة",
+      "totalItems": "إجمالي العناصر",
+      "totalPages": "إجمالي الصفحات",
+      "sort": "الترتيب",
+      "termId": "معرّف الفصل",
+      "code": "الرمز",
+      "en": "الإنجليزية",
+      "ar": "العربية",
+      "description": "الوصف",
+      "tasks": "المهام",
+      "taskId": "معرّف المهمة",
+      "required": "إلزامي",
+      "minimumAttendancePercent": "الحد الأدنى لنسبة الحضور",
+      "q": "بحث",
+      "courseId": "معرّف الدورة",
+      "displayName": "الاسم المعروض",
+      "userId": "معرّف المستخدم",
+      "studentNumber": "رقم الطالب",
+      "groupId": "معرّف المجموعة",
+      "studentId": "معرّف الطالب",
+      "overallPercent": "النسبة الإجمالية",
+      "competencies": "الكفاءات",
+      "competencyId": "معرّف الكفاءة",
+      "requiredTasks": "المهام المطلوبة",
+      "signedPassedRequiredTasks": "المهام المطلوبة المجتازة والمعتمدة",
+      "pendingUnsignedTasks": "المهام غير المعتمدة",
+      "coveragePercent": "نسبة التغطية",
+      "generatedAt": "تاريخ الحساب",
+      "eligible": "مؤهل للإكمال",
+      "attendancePercent": "نسبة الحضور",
+      "unmetConditions": "الشروط غير المستوفاة",
+      "message": "الرسالة",
+      "evaluatedAt": "وقت التقييم",
+      "enrolledCount": "عدد المسجلين",
+      "enrolledAt": "تاريخ التسجيل",
+      "withdrawnAt": "تاريخ الانسحاب",
+      "withdrawalReason": "سبب الانسحاب",
+      "reason": "السبب",
+      "enrollmentId": "معرّف التسجيل",
+      "title": "العنوان",
+      "bayId": "معرّف محطة العمل",
+      "mentorId": "معرّف المرشد",
+      "startsAt": "وقت البداية",
+      "endsAt": "وقت النهاية",
+      "cancellationReason": "سبب الإلغاء",
+      "activeConflictOverrideCount": "عدد استثناءات التعارض السارية",
+      "version": "الإصدار",
+      "from": "من",
+      "to": "إلى",
+      "sessionId": "معرّف الجلسة",
+      "hasConflicts": "توجد تعارضات",
+      "canPublish": "يمكن النشر",
+      "conflicts": "التعارضات",
+      "conflictKey": "مفتاح التعارض",
+      "kind": "النوع",
+      "overridable": "يمكن استثناؤه",
+      "overridden": "تم استثناؤه",
+      "conflictingReference": "مرجع التعارض",
+      "referenceId": "معرّف المرجع",
+      "referenceLabel": "اسم المرجع",
+      "conflictKeys": "مفاتيح التعارض",
+      "toStatus": "الحالة المستهدفة",
+      "records": "السجلات",
+      "note": "ملاحظة",
+      "expectedMinutes": "الدقائق المتوقعة",
+      "result": "النتيجة",
+      "timeOnTaskMinutes": "الدقائق المستغرقة",
+      "mentorNote": "ملاحظة المرشد",
+      "evidenceAttachmentIds": "معرّفات مرفقات الأدلة",
+      "assessedBy": "المقيّم",
+      "assessedAt": "وقت التقييم",
+      "signOffStatus": "حالة الاعتماد",
+      "signedOffBy": "اعتمده",
+      "signedOffAt": "وقت الاعتماد",
+      "signOffNote": "ملاحظة الاعتماد",
+      "countsTowardCompletion": "يُحتسب للإكمال",
+      "changeReason": "سبب التعديل",
+      "assessmentId": "معرّف التقييم",
+      "decision": "القرار",
+      "certificateNumber": "رقم الشهادة",
+      "issuedAt": "تاريخ الإصدار",
+      "issuedBy": "أصدره",
+      "revokedAt": "تاريخ الإلغاء",
+      "revokedBy": "ألغاه",
+      "revocationReason": "سبب إلغاء الشهادة",
+      "verificationToken": "رمز التحقق",
+      "certificateId": "معرّف الشهادة",
+      "holderDisplayName": "اسم حامل الشهادة المعروض",
+      "courseName": "اسم الدورة"
+    },
+    "values": {
+      "PLANNED": "مخطط",
+      "ACTIVE": "نشط",
+      "CLOSED": "مغلق",
+      "DRAFT": "مسودة",
+      "ARCHIVED": "مؤرشف",
+      "INACTIVE": "غير نشط",
+      "ENROLLMENT_NOT_ACTIVE": "التسجيل غير نشط",
+      "ATTENDANCE_BELOW_MINIMUM": "الحضور أقل من الحد الأدنى",
+      "REQUIRED_TASK_NOT_PASSED": "مهمة مطلوبة غير مجتازة",
+      "ASSESSMENT_UNSIGNED": "تقييم غير معتمد",
+      "CERTIFICATE_ALREADY_ISSUED": "صدرت الشهادة بالفعل",
+      "WITHDRAWN": "منسحب",
+      "COMPLETED": "مكتمل",
+      "PUBLISHED": "منشور",
+      "CANCELLED": "ملغى",
+      "BAY_JOB_CONFLICT": "تعارض مع أمر عمل",
+      "BAY_SESSION_CONFLICT": "تعارض جلسات على محطة العمل",
+      "BAY_UNAVAILABLE": "محطة العمل غير متاحة",
+      "BAY_CAPACITY_EXCEEDED": "تجاوز سعة محطة العمل",
+      "MENTOR_SESSION_CONFLICT": "تعارض جلسات المرشد",
+      "MENTOR_WORKSHOP_CONFLICT": "تعارض المرشد مع الورشة",
+      "JOB": "أمر عمل",
+      "TRAINING_SESSION": "جلسة تدريب",
+      "PRESENT": "حاضر",
+      "ABSENT": "غائب",
+      "LATE": "متأخر",
+      "EXCUSED": "معذور",
+      "PASS": "ناجح",
+      "FAIL": "راسب",
+      "NEEDS_IMPROVEMENT": "يحتاج إلى تحسين",
+      "PENDING": "بانتظار الاعتماد",
+      "SIGNED_OFF": "معتمد",
+      "RETURNED": "أعيد للمراجعة",
+      "ISSUED": "صادرة",
+      "REVOKED": "ملغاة"
+    },
+    "remove": "إزالة",
+    "addItem": "إضافة {{field}}",
+    "minimumItems": "يلزم إدخال {{count}} عناصر على الأقل.",
+    "timestampHint": "أدخل الوقت بتنسيق ISO مع المنطقة الزمنية: YYYY-MM-DDTHH:mm:ssZ.",
+    "choose": "اختر…",
+    "unavailableValue": "غير متاح",
+    "empty": "لا توجد سجلات",
+    "yes": "نعم",
+    "no": "لا",
+    "notAvailable": "غير متاح بعد. أعاد الخادم 404/501؛ قد تكون الميزة غير منفذة بعد أو السجل المطلوب غير متاح.",
+    "verificationNotFound": "التحقق غير متاح: لم يُرجع الخادم شهادة عامة لهذا الرمز. قد لا تكون خدمة التحقق متاحة بعد.",
+    "rateLimited": "طلبات تحقق كثيرة. يرجى المحاولة لاحقاً.",
+    "verificationError": "تعذر إتمام التحقق من الشهادة. يرجى المحاولة مجدداً.",
+    "assessmentHint": "يبقى التقييم بانتظار اعتماد المشرف. يحدد الخادم وحده احتسابه للإكمال.",
+    "signoffHint": "قرار المشرف مستقل عن إدخال التقييم. لا يمكن للمقيّم اعتماد نتيجته بنفسه؛ يفرض الخادم هذا القيد.",
+    "revokeWarning": "إلغاء الشهادة دائم. تحقق من الشهادة وأدخل السبب.",
+    "confirmAction": "أؤكد تنفيذ هذا الإجراء للسجل المحدد.",
+    "actionBlocked": "حدد سجلاً أو تحقق من حالته وشروط فصل المسؤوليات قبل المتابعة.",
+    "invalidForm": "أكمل الحقول المطلوبة والتأكيد. تحقق من عناصر القوائم والأوقات وسبب الإلغاء أو ملاحظة الإعادة.",
+    "saved": "أكد الخادم تنفيذ الطلب.",
+    "calendarHint": "جدول زمني للجلسات. يمكنك التصفية حسب الفترة أو المجموعة أو محطة العمل أو المرشد. تُعرض جلسات وحالات الخادم فقط.",
+    "applyFilters": "تطبيق عوامل التصفية",
+    "details": "التفاصيل",
+    "noDetailEndpoint": "لا يوفر العقد نقطة تفاصيل مستقلة. افتح السجل من قائمته.",
+    "verify": "التحقق من الشهادة",
+    "load": "عرض النتيجة",
+    "computedHint": "يحسب الخادم الأهلية والتغطية. النتائج الناقصة غير متاحة."
+  },
+  "app": {
+    "name": "نظام إدارة ورشة WST"
+  },
+  "common": {
+    "loading": "جارٍ التحميل…",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "submit": "إرسال",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "yes": "نعم",
+    "no": "لا",
+    "requestId": "رقم الطلب: {{id}}",
+    "search": "بحث",
+    "filters": "عوامل التصفية",
+    "clearFilters": "مسح عوامل التصفية",
+    "allStatuses": "جميع الحالات",
+    "allTypes": "جميع الأنواع",
+    "actions": "الإجراءات",
+    "status": "الحالة",
+    "create": "إنشاء",
+    "edit": "تعديل",
+    "view": "عرض",
+    "sortBy": "الترتيب حسب",
+    "ascending": "تصاعدي",
+    "descending": "تنازلي",
+    "noResults": "لا توجد نتائج.",
+    "noResultsHint": "حاول تعديل البحث أو عوامل التصفية.",
+    "optional": "اختياري",
+    "createdAt": "تاريخ الإنشاء",
+    "updatedAt": "تاريخ التحديث",
+    "unassigned": "غير معيّن"
+  },
+  "language": {
+    "label": "اللغة",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "theme": {
+    "switchToLight": "التبديل إلى المظهر الفاتح",
+    "switchToDark": "التبديل إلى المظهر الداكن"
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول",
+      "subtitle": "أدخل بيانات الاعتماد الخاصة بالورشة للمتابعة.",
+      "emailLabel": "البريد الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "submitting": "جارٍ تسجيل الدخول…",
+      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "genericError": "تعذر تسجيل الدخول. حاول مرة أخرى.",
+      "rateLimited": "محاولات كثيرة جدًا. حاول مرة أخرى بعد {{seconds}} ثانية.",
+      "noAccount": "جديد على الورشة؟",
+      "createAccount": "إنشاء حساب"
+    },
+    "register": {
+      "title": "أنشئ حسابك",
+      "subtitle": "سجّل لطلب الوصول. سيقوم أحد المسؤولين بتعيين دورك ونطاق مؤسستك قبل أن تتمكن من استخدام أدوات الورشة.",
+      "displayNameLabel": "الاسم الكامل",
+      "emailLabel": "البريد الإلكتروني",
+      "localeLabel": "اللغة المفضلة",
+      "passwordLabel": "كلمة المرور",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "passwordsMustMatch": "يجب أن تتطابق كلمتا المرور.",
+      "submit": "إنشاء حساب",
+      "submitting": "جارٍ إنشاء الحساب…",
+      "successMessage": "تم إنشاء الحساب. سجّل الدخول بعد أن يمنحك أحد المسؤولين الوصول.",
+      "haveAccount": "هل لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول"
+    },
+    "changePassword": {
+      "title": "غيّر كلمة المرور",
+      "subtitle": "يتطلب المسؤول تعيين كلمة مرور جديدة قبل الاستمرار.",
+      "currentPasswordLabel": "كلمة المرور الحالية",
+      "newPasswordLabel": "كلمة المرور الجديدة",
+      "newPasswordHint": "12 حرفًا على الأقل.",
+      "submit": "تغيير كلمة المرور",
+      "submitting": "جارٍ تغيير كلمة المرور…",
+      "success": "تم تغيير كلمة المرور. جارٍ الاستمرار…"
+    },
+    "logout": "تسجيل الخروج",
+    "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.",
+    "restoring": "جارٍ استعادة جلستك…"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب.",
+    "email": "أدخل بريدًا إلكترونيًا صالحًا.",
+    "minLength": "يجب أن يتكون من {{count}} حرفًا على الأقل.",
+    "passwordsMustDiffer": "يجب أن تختلف كلمة المرور الجديدة عن الحالية.",
+    "phoneE164": "أدخل رقم هاتف بصيغة دولية، مثل ‎+15551234567.",
+    "positiveInteger": "أدخل رقمًا صحيحًا أكبر من صفر.",
+    "nonNegativeInteger": "أدخل رقمًا صحيحًا لا يقل عن صفر.",
+    "reminderDueRequired": "أدخل تاريخ استحقاق أو مسافة استحقاق على الأقل.",
+    "vinFormat": "أدخل رقم هيكل (VIN) صالحًا (أحرف وأرقام فقط، بدون I أو O أو Q)."
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "access": "إدارة الصلاحيات",
+    "customers": "العملاء",
+    "vehicles": "المركبات",
+    "bays": "الأرصفة",
+    "jobs": "بطاقات العمل",
+    "inventory": "المخزون",
+    "purchasing": "المشتريات",
+    "invoices": "الفواتير",
+    "training": "التدريب",
+    "reports": "التقارير والتصدير",
+    "predictions": "التوقعات",
+    "audit": "سجلات التدقيق"
+  },
+  "shell": {
+    "toggleSidebar": "تبديل شريط التنقل الجانبي",
+    "openMobileNav": "فتح قائمة التنقل",
+    "closeMobileNav": "إغلاق قائمة التنقل",
+    "userMenu": "قائمة الحساب",
+    "skipToContent": "تخطي إلى المحتوى الرئيسي"
+  },
+  "home": {
+    "title": "مرحبًا، {{name}}",
+    "identity": "الهوية",
+    "email": "البريد الإلكتروني",
+    "roles": "الأدوار",
+    "organizationScopes": "نطاقات المؤسسة",
+    "noScopes": "لا توجد نطاقات مؤسسة مخصصة.",
+    "permissions": "الصلاحيات",
+    "permissionCount": "صلاحية واحدة ممنوحة",
+    "permissionCount_other": "{{count}} صلاحية ممنوحة",
+    "permissionsNote": "تعكس هذه القائمة ما أعادته /auth/me لحسابك، وهي للعرض فقط. الخادم، لا هذه القائمة، هو من يطبّق كل إجراء."
+  },
+  "pendingAccess": {
+    "title": "حسابك بانتظار منح الوصول",
+    "message": "تم تسجيل {{email}} لكن ليس لديه دور أو نطاق مؤسسة بعد. يجب على أحد المسؤولين تعيين كليهما قبل أن تتمكن من استخدام أدوات الورشة. تحقق لاحقًا أو أعد التحميل أدناه.",
+    "refresh": "تحديث الوصول"
+  },
+  "pendingModule": {
+    "title": "{{module}}",
+    "message": "تكامل الميزة قيد الإنجاز. سيتم تنفيذ شاشات هذه الوحدة في مرحلة لاحقة."
+  },
+  "forbidden": {
+    "title": "الوصول مرفوض",
+    "message": "لا تملك الصلاحية لعرض هذه الصفحة. إذا كنت تعتقد أن هذا خطأ، تواصل مع المسؤول.",
+    "backHome": "العودة إلى لوحة التحكم"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "message": "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها.",
+    "backHome": "العودة إلى لوحة التحكم"
+  },
+  "errors": {
+    "networkError": "تعذر الوصول إلى الخادم. تحقق من اتصالك وحاول مرة أخرى.",
+    "unknownError": "حدث خطأ ما. حاول مرة أخرى.",
+    "requestFailed": "فشل الطلب",
+    "rateLimited": "محاولات كثيرة جدًا. حاول مرة أخرى بعد {{seconds}} ثانية.",
+    "renderError": {
+      "title": "حدث خطأ ما",
+      "message": "حدث خطأ غير متوقع أثناء عرض هذه الصفحة.",
+      "reload": "إعادة تحميل الصفحة"
+    }
+  },
+  "access": {
+    "users": {
+      "title": "المستخدمون",
+      "createAction": "مستخدم جديد",
+      "searchPlaceholder": "ابحث بالاسم أو البريد الإلكتروني",
+      "roleFilter": "الدور",
+      "allRoles": "جميع الأدوار",
+      "scopeFilter": "نطاق المؤسسة",
+      "allScopes": "جميع النطاقات",
+      "columns": {
+        "displayName": "الاسم",
+        "email": "البريد الإلكتروني",
+        "status": "الحالة",
+        "roles": "الأدوار",
+        "locale": "اللغة",
+        "scopes": "النطاقات",
+        "createdAt": "تاريخ الإنشاء"
+      },
+      "statusOptions": {
+        "ACTIVE": "نشط",
+        "DISABLED": "معطّل"
+      },
+      "empty": {
+        "title": "لا يوجد مستخدمون",
+        "description": "جرّب بحثًا أو تصفية مختلفة، أو أنشئ مستخدمًا جديدًا."
+      },
+      "scopeCount_one": "نطاق واحد",
+      "scopeCount_other": "{{count}} نطاقات",
+      "create": {
+        "title": "مستخدم جديد",
+        "emailLabel": "البريد الإلكتروني",
+        "displayNameLabel": "الاسم المعروض",
+        "localeLabel": "اللغة المفضلة",
+        "temporaryPasswordLabel": "كلمة مرور مؤقتة",
+        "temporaryPasswordHint": "يجب على المستخدم تغيير كلمة المرور هذه عند أول تسجيل دخول. لن تُعرض مرة أخرى بعد الإنشاء.",
+        "submit": "إنشاء مستخدم",
+        "submitting": "جارٍ الإنشاء…",
+        "success": "تم إنشاء المستخدم."
+      },
+      "detail": {
+        "title": "المستخدم",
+        "backToList": "العودة إلى المستخدمين",
+        "profileSection": "الملف الشخصي",
+        "displayNameLabel": "الاسم المعروض",
+        "localeLabel": "اللغة المفضلة",
+        "statusLabel": "الحالة",
+        "resetPasswordLabel": "إعادة تعيين كلمة المرور (اختياري)",
+        "resetPasswordHint": "اتركه فارغًا للاحتفاظ بكلمة المرور الحالية. تعيين كلمة جديدة يفرض تغييرها عند تسجيل الدخول التالي.",
+        "saveProfile": "حفظ التغييرات",
+        "saving": "جارٍ الحفظ…",
+        "saveSuccess": "تم تحديث المستخدم.",
+        "mustChangePassword": "يجب تغيير كلمة المرور عند تسجيل الدخول التالي",
+        "lastLoginAt": "آخر تسجيل دخول",
+        "never": "أبدًا",
+        "disableConfirmTitle": "تعطيل هذا المستخدم؟",
+        "disableConfirmDescription": "التعطيل يلغي فورًا جميع جلسات هذا المستخدم النشطة. لن يتمكن من تسجيل الدخول حتى تتم إعادة تفعيله.",
+        "separationOfDutiesTitle": "الإجراء غير مسموح",
+        "separationOfDutiesMessage": "رفض الخادم هذا التغيير لمنع مسؤول من إلغاء صلاحياته الخاصة."
+      },
+      "roles": {
+        "title": "الأدوار",
+        "description": "الصلاحيات التي يمنحها كل دور معروضة للعلم فقط؛ الخادم هو من يطبّقها.",
+        "replaceAction": "استبدال الأدوار",
+        "submit": "حفظ الأدوار",
+        "submitting": "جارٍ الحفظ…",
+        "success": "تم تحديث الأدوار.",
+        "warnRemoveAdmin": "إزالة دور SYSTEM_ADMIN من هذا المستخدم قد تترك الورشة بدون مسؤول. سيرفض الخادم هذا إذا كان آخر مسؤول نظام نشط.",
+        "cannotEditOwn": "لا يمكنك تغيير تعيين دورك الخاص."
+      },
+      "scopes": {
+        "title": "نطاقات المؤسسة",
+        "description": "الوصول على مستوى الصفوف للعملاء والمركبات والسجلات الأخرى مشتق من هذه النطاقات.",
+        "replaceAction": "استبدال النطاقات",
+        "submit": "حفظ النطاقات",
+        "submitting": "جارٍ الحفظ…",
+        "success": "تم تحديث نطاقات المؤسسة.",
+        "searchPlaceholder": "ابحث عن نطاقات"
+      }
+    },
+    "scopes": {
+      "title": "نطاقات المؤسسة",
+      "createAction": "نطاق جديد",
+      "typeFilter": "النوع",
+      "columns": {
+        "code": "الرمز",
+        "name": "الاسم",
+        "type": "النوع",
+        "status": "الحالة",
+        "createdAt": "تاريخ الإنشاء"
+      },
+      "typeOptions": {
+        "BRANCH": "فرع",
+        "STORE": "متجر",
+        "TRAINING_PROGRAM": "برنامج تدريبي"
+      },
+      "statusOptions": {
+        "ACTIVE": "نشط",
+        "INACTIVE": "غير نشط"
+      },
+      "empty": {
+        "title": "لا توجد نطاقات مؤسسة",
+        "description": "أنشئ نطاقًا لتنظيم الفروع والمتاجر وبرامج التدريب."
+      },
+      "create": {
+        "title": "نطاق مؤسسة جديد",
+        "codeLabel": "الرمز",
+        "nameLabel": "الاسم",
+        "typeLabel": "النوع",
+        "parentLabel": "النطاق الأصل",
+        "parentHint": "اختياري. اتركه فارغًا لنطاق من المستوى الأعلى.",
+        "submit": "إنشاء النطاق",
+        "submitting": "جارٍ الإنشاء…",
+        "success": "تم إنشاء نطاق المؤسسة."
+      },
+      "edit": {
+        "title": "تعديل نطاق المؤسسة",
+        "nameLabel": "الاسم",
+        "statusLabel": "الحالة",
+        "submit": "حفظ التغييرات",
+        "submitting": "جارٍ الحفظ…",
+        "success": "تم تحديث نطاق المؤسسة."
+      }
+    }
+  },
+  "customers": {
+    "title": "العملاء",
+    "createAction": "عميل جديد",
+    "searchPlaceholder": "ابحث بالاسم",
+    "statusFilter": "الحالة",
+    "phoneFilter": "الهاتف",
+    "phoneFilterPlaceholder": "مثال: ‎+15551234567",
+    "columns": {
+      "displayName": "الاسم",
+      "type": "النوع",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "locale": "اللغة",
+      "channel": "قناة التواصل",
+      "status": "الحالة",
+      "createdAt": "تاريخ الإنشاء"
+    },
+    "statusOptions": {
+      "ACTIVE": "نشط",
+      "ARCHIVED": "مؤرشف"
+    },
+    "typeOptions": {
+      "INDIVIDUAL": "فرد",
+      "BUSINESS": "شركة"
+    },
+    "channelOptions": {
+      "PHONE": "هاتف",
+      "SMS": "رسالة نصية",
+      "EMAIL": "بريد إلكتروني"
+    },
+    "empty": {
+      "title": "لا يوجد عملاء",
+      "description": "جرّب بحثًا أو تصفية مختلفة، أو سجّل عميلًا جديدًا."
+    },
+    "create": {
+      "title": "عميل جديد",
+      "displayNameLabel": "الاسم",
+      "typeLabel": "نوع العميل",
+      "phoneLabel": "الهاتف",
+      "emailLabel": "البريد الإلكتروني",
+      "organizationScopeLabel": "نطاق المؤسسة",
+      "contactPreferencesTitle": "تفضيلات التواصل",
+      "preferredChannelLabel": "قناة التواصل المفضلة",
+      "preferredLocaleLabel": "اللغة المفضلة",
+      "noPreference": "لا تفضيل",
+      "submit": "إنشاء عميل",
+      "submitting": "جارٍ الإنشاء…",
+      "success": "تم إنشاء العميل."
+    },
+    "detail": {
+      "title": "العميل",
+      "backToList": "العودة إلى العملاء",
+      "editSection": "التفاصيل",
+      "saveAction": "حفظ التغييرات",
+      "saving": "جارٍ الحفظ…",
+      "saveSuccess": "تم تحديث العميل.",
+      "viewVehicles": "عرض مركبات هذا العميل",
+      "archiveAction": "أرشفة العميل",
+      "archiveConfirmTitle": "أرشفة هذا العميل؟",
+      "archiveConfirmDescription": "العملاء المؤرشفون مخفيون من سير العمل النشط. لا يمكن التراجع عن هذا من هنا.",
+      "reactivateAction": "إعادة تفعيل العميل",
+      "resourceInUseTitle": "لا يمكن الأرشفة",
+      "resourceInUseMessage": "لدى هذا العميل مهام لم يتم تسليمها بعد، لذا لا يمكن أرشفته."
+    }
+  },
+  "vehicles": {
+    "title": "المركبات",
+    "createAction": "مركبة جديدة",
+    "searchPlaceholder": "ابحث باللوحة أو رقم الهيكل أو الصانع أو الطراز",
+    "customerFilter": "العميل",
+    "plateFilter": "اللوحة",
+    "vinFilter": "رقم الهيكل",
+    "makeFilter": "الصانع",
+    "modelFilter": "الطراز",
+    "statusFilter": "الحالة",
+    "columns": {
+      "plate": "اللوحة",
+      "vin": "رقم الهيكل",
+      "make": "الصانع",
+      "model": "الطراز",
+      "year": "السنة",
+      "mileage": "المسافة المقطوعة",
+      "customer": "العميل",
+      "status": "الحالة",
+      "createdAt": "تاريخ الإنشاء"
+    },
+    "statusOptions": {
+      "ACTIVE": "نشطة",
+      "ARCHIVED": "مؤرشفة"
+    },
+    "mileageUnitOptions": {
+      "KM": "كم",
+      "MI": "ميل"
+    },
+    "empty": {
+      "title": "لا توجد مركبات",
+      "description": "جرّب بحثًا أو تصفية مختلفة، أو سجّل مركبة جديدة."
+    },
+    "create": {
+      "title": "مركبة جديدة",
+      "customerLabel": "العميل",
+      "customerSearchPlaceholder": "ابحث عن عملاء",
+      "customerIdLabel": "معرّف العميل",
+      "customerIdHint": "أدخل معرّف العميل مباشرةً. لا تملك صلاحية البحث عن العملاء.",
+      "plateLabel": "اللوحة",
+      "vinLabel": "رقم الهيكل",
+      "makeLabel": "الصانع",
+      "modelLabel": "الطراز",
+      "yearLabel": "السنة",
+      "mileageLabel": "المسافة المقطوعة",
+      "mileageUnitLabel": "وحدة المسافة",
+      "submit": "تسجيل المركبة",
+      "submitting": "جارٍ التسجيل…",
+      "success": "تم تسجيل المركبة.",
+      "duplicateTitle": "مركبة مكررة",
+      "duplicateMessage": "توجد مركبة بهذه اللوحة أو رقم الهيكل مسبقًا."
+    },
+    "detail": {
+      "title": "المركبة",
+      "backToList": "العودة إلى المركبات",
+      "customerLink": "عرض العميل",
+      "editSection": "التفاصيل",
+      "plateLabel": "اللوحة",
+      "mileageLabel": "المسافة المقطوعة",
+      "statusLabel": "الحالة",
+      "saveAction": "حفظ التغييرات",
+      "saving": "جارٍ الحفظ…",
+      "saveSuccess": "تم تحديث المركبة.",
+      "mileageDecreaseTitle": "لا يمكن تقليل المسافة المقطوعة",
+      "mileageDecreaseMessage": "رفض الخادم هذا التحديث لأن المسافة المقطوعة يجب أن تزيد فقط.",
+      "archiveAction": "أرشفة المركبة",
+      "archiveConfirmTitle": "أرشفة هذه المركبة؟",
+      "archiveConfirmDescription": "المركبات المؤرشفة مخفية من سير العمل النشط. لا يمكن التراجع عن هذا من هنا.",
+      "resourceInUseTitle": "لا يمكن الأرشفة",
+      "resourceInUseMessage": "لدى هذه المركبة مهمة لم يتم تسليمها بعد، لذا لا يمكن أرشفتها.",
+      "lastCompletedJob": "آخر مهمة مكتملة",
+      "noCompletedJob": "لا توجد مهام مكتملة بعد.",
+      "nextService": "الصيانة القادمة",
+      "noNextService": "لا توجد صيانة قادمة مجدولة.",
+      "historyTab": "سجل الصيانة",
+      "remindersTab": "التذكيرات"
+    },
+    "serviceHistory": {
+      "columns": {
+        "jobNumber": "رقم المهمة",
+        "serviceType": "نوع الخدمة",
+        "complaint": "الشكوى",
+        "mileageAtIntake": "المسافة عند الاستلام",
+        "deliveredAt": "تاريخ التسليم"
+      },
+      "empty": {
+        "title": "لا يوجد سجل صيانة بعد",
+        "description": "ستظهر هنا المهام المكتملة لهذه المركبة."
+      },
+      "viewJob": "عرض المهمة"
+    },
+    "reminders": {
+      "title": "تذكيرات الصيانة",
+      "createAction": "تذكير جديد",
+      "statusFilter": "الحالة",
+      "columns": {
+        "title": "العنوان",
+        "dueDate": "تاريخ الاستحقاق",
+        "dueMileage": "مسافة الاستحقاق",
+        "status": "الحالة",
+        "notes": "ملاحظات"
+      },
+      "statusOptions": {
+        "OPEN": "مفتوح",
+        "DONE": "منجز",
+        "CANCELLED": "ملغى"
+      },
+      "empty": {
+        "title": "لا توجد تذكيرات",
+        "description": "أنشئ تذكيرًا لمتابعة الصيانة القادمة لهذه المركبة."
+      },
+      "create": {
+        "title": "تذكير جديد",
+        "titleLabel": "العنوان",
+        "dueDateLabel": "تاريخ الاستحقاق",
+        "dueMileageLabel": "مسافة الاستحقاق",
+        "notesLabel": "ملاحظات",
+        "submit": "إنشاء تذكير",
+        "submitting": "جارٍ الإنشاء…",
+        "success": "تم إنشاء التذكير."
+      },
+      "edit": {
+        "title": "تعديل التذكير",
+        "submit": "حفظ التغييرات",
+        "submitting": "جارٍ الحفظ…",
+        "success": "تم تحديث التذكير."
+      },
+      "complete": "وضع علامة منجز",
+      "completeConfirmTitle": "وضع علامة منجز على هذا التذكير؟",
+      "completeConfirmDescription": "سيغلق هذا التذكير كمكتمل.",
+      "cancelReminder": "إلغاء التذكير",
+      "cancelConfirmTitle": "إلغاء هذا التذكير؟",
+      "cancelConfirmDescription": "سيغلق هذا التذكير دون إتمامه.",
+      "invalidTransitionTitle": "التذكير مغلق بالفعل",
+      "invalidTransitionMessage": "هذا التذكير منجز أو ملغى ولا يمكن تغييره بعد الآن."
+    }
+  },
+  "jobs": {
+    "title": "بطاقات العمل",
+    "createAction": "بطاقة عمل جديدة",
+    "searchPlaceholder": "ابحث برقم المهمة أو الشكوى",
+    "allPriorities": "جميع الأولويات",
+    "technicianFilter": "معرّف الفني",
+    "bayFilter": "معرّف الرصيف",
+    "columns": {
+      "jobNumber": "رقم المهمة",
+      "vehicle": "المركبة",
+      "customer": "العميل",
+      "stage": "المرحلة",
+      "priority": "الأولوية",
+      "expectedCompletionAt": "الإنجاز المتوقع"
+    },
+    "stages": {
+      "RECEIVED": "مستلمة",
+      "IN_PROGRESS": "قيد التنفيذ",
+      "QUALITY_CHECK": "فحص الجودة",
+      "READY": "جاهزة",
+      "DELIVERED": "تم التسليم"
+    },
+    "priorityOptions": {
+      "LOW": "منخفضة",
+      "NORMAL": "عادية",
+      "HIGH": "عالية",
+      "URGENT": "عاجلة"
+    },
+    "serviceTypeOptions": {
+      "MAINTENANCE": "صيانة",
+      "REPAIR": "إصلاح",
+      "DIAGNOSTIC": "تشخيص",
+      "INSPECTION": "فحص",
+      "OTHER": "أخرى"
+    },
+    "empty": {
+      "title": "لا توجد بطاقات عمل",
+      "description": "جرّب بحثًا أو تصفية مختلفة، أو افتح بطاقة عمل جديدة."
+    },
+    "stageStepper": {
+      "label": "تقدّم مرحلة المهمة"
+    },
+    "tabs": {
+      "overview": "نظرة عامة",
+      "assignment": "التعيين",
+      "workItems": "عناصر العمل",
+      "approvals": "الموافقات",
+      "labor": "العمالة",
+      "quality": "الجودة",
+      "parts": "القطع",
+      "attachments": "المرفقات",
+      "history": "السجل"
+    },
+    "create": {
+      "title": "بطاقة عمل جديدة",
+      "vehicleLabel": "المركبة",
+      "vehicleIdHint": "أدخل معرّف المركبة مباشرةً. لا تملك صلاحية البحث عن المركبات.",
+      "vehicleSearchPlaceholder": "ابحث باللوحة أو رقم الهيكل أو الصانع أو الطراز",
+      "complaintLabel": "شكوى العميل",
+      "serviceTypeLabel": "نوع الخدمة",
+      "priorityLabel": "الأولوية",
+      "mileageLabel": "المسافة عند الاستلام",
+      "expectedCompletionLabel": "الإنجاز المتوقع",
+      "submit": "فتح بطاقة العمل",
+      "submitting": "جارٍ الفتح…",
+      "success": "تم فتح بطاقة العمل."
+    },
+    "detail": {
+      "title": "بطاقة العمل",
+      "backToList": "العودة إلى بطاقات العمل",
+      "saveAction": "حفظ التغييرات",
+      "saving": "جارٍ الحفظ…",
+      "saveSuccess": "تم تحديث بطاقة العمل.",
+      "transitionsTitle": "إجراءات المرحلة",
+      "currentStage": "المرحلة الحالية: {{stage}}",
+      "advanceTo": "الانتقال إلى {{stage}}",
+      "sendToRework": "إعادة للتصحيح",
+      "noActionsAvailable": "لا توجد إجراءات مرحلة متاحة لك حاليًا.",
+      "reworkConfirmTitle": "إعادة هذه المهمة للتصحيح؟",
+      "reworkConfirmDescription": "تعود المهمة إلى قيد التنفيذ لتصحيح العناصر الفاشلة.",
+      "reworkReasonLabel": "السبب",
+      "transitionSuccess": "تم نقل المهمة إلى {{stage}}."
+    },
+    "assignment": {
+      "bayLabel": "الرصيف",
+      "technicianLabel": "الفني",
+      "scheduledStartLabel": "وقت البدء المجدول",
+      "submit": "حفظ التعيين",
+      "saving": "جارٍ الحفظ…",
+      "success": "تم تعيين المهمة.",
+      "conflictTitle": "تعارض في الجدولة"
+    },
+    "workItems": {
+      "createAction": "إضافة عنصر عمل",
+      "creating": "جارٍ الإضافة…",
+      "createSuccess": "تمت إضافة عنصر العمل.",
+      "updateSuccess": "تم تحديث عنصر العمل.",
+      "markDone": "وضع علامة منجز",
+      "isAdditionalWorkLabel": "هذا عمل إضافي يتطلب موافقة عميل منفصلة",
+      "columns": {
+        "description": "الوصف",
+        "additional": "عمل إضافي"
+      },
+      "statusOptions": {
+        "PENDING": "قيد الانتظار",
+        "DONE": "منجز",
+        "CANCELLED": "ملغى"
+      },
+      "empty": {
+        "title": "لا توجد عناصر عمل بعد",
+        "description": "أضف عناصر العمل التي تحتاجها هذه المهمة لإتمامها."
+      }
+    },
+    "approvals": {
+      "createAction": "طلب موافقة",
+      "createSuccess": "تم إنشاء طلب الموافقة.",
+      "decisionSuccess": "تم تسجيل القرار.",
+      "decideAction": "تسجيل القرار",
+      "decisionLabel": "القرار",
+      "methodLabel": "الطريقة",
+      "approvedByNameLabel": "اسم ممثل العميل",
+      "notesLabel": "ملاحظات",
+      "columns": {
+        "scope": "النطاق",
+        "description": "الوصف"
+      },
+      "scopeOptions": {
+        "INITIAL_WORK": "العمل الأولي",
+        "ADDITIONAL_WORK": "عمل إضافي",
+        "SUBLET": "تعاقد من الباطن"
+      },
+      "statusOptions": {
+        "PENDING": "قيد الانتظار",
+        "APPROVED": "موافق عليه",
+        "REJECTED": "مرفوض"
+      },
+      "methodOptions": {
+        "IN_PERSON": "حضوريًا",
+        "PHONE": "هاتفيًا",
+        "MESSAGE": "رسالة",
+        "EMAIL": "بريد إلكتروني",
+        "SIGNED_FORM": "نموذج موقّع"
+      },
+      "empty": {
+        "title": "لا توجد طلبات موافقة",
+        "description": "تظهر هنا موافقات العميل على العمل القابل للفوترة أو الإضافي."
+      }
+    },
+    "labor": {
+      "createAction": "تسجيل عمالة",
+      "createSuccess": "تم تسجيل العمالة.",
+      "voidAction": "إلغاء",
+      "voidSuccess": "تم إلغاء قيد العمالة.",
+      "voidConfirmTitle": "إلغاء قيد العمالة هذا؟",
+      "reasonLabel": "السبب",
+      "durationLabel": "المدة (دقائق)",
+      "columns": {
+        "workDate": "التاريخ",
+        "duration": "الدقائق",
+        "description": "الوصف",
+        "amount": "المبلغ"
+      },
+      "statusOptions": {
+        "ACTIVE": "نشط",
+        "VOIDED": "ملغى"
+      },
+      "empty": {
+        "title": "لا توجد عمالة مسجلة بعد",
+        "description": "يمكن للفنيين تسجيل الوقت بمجرد أن تكون المهمة قيد التنفيذ."
+      }
+    },
+    "quality": {
+      "createAction": "تسجيل فحص جودة",
+      "createSuccess": "تم تسجيل فحص الجودة.",
+      "notesLabel": "ملاحظات",
+      "notesRequiredOnFail": "الملاحظات مطلوبة عندما تكون النتيجة فاشلة.",
+      "performedAtLabel": "وقت التنفيذ",
+      "resultOptions": {
+        "PASSED": "ناجح",
+        "FAILED": "فاشل"
+      },
+      "empty": {
+        "title": "لا توجد فحوصات جودة بعد",
+        "description": "تُسجَّل فحوصات الجودة بمجرد وصول المهمة إلى فحص الجودة."
+      }
+    },
+    "parts": {
+      "issuesTitle": "القطع المصروفة",
+      "reservationsTitle": "حجوزات القطع",
+      "issueAction": "صرف قطعة",
+      "reserveAction": "حجز قطعة",
+      "releaseAction": "تحرير",
+      "reverseAction": "عكس",
+      "issueSuccess": "تم صرف القطعة.",
+      "reserveSuccess": "تم حجز القطعة.",
+      "reverseSuccess": "تم عكس الصرف.",
+      "releaseSuccess": "تم تحرير الحجز.",
+      "reverseConfirmTitle": "عكس صرف هذه القطعة؟",
+      "insufficientStockTitle": "المخزون غير كافٍ",
+      "partLabel": "القطعة",
+      "storeLabel": "المتجر",
+      "columns": {
+        "sku": "رمز الصنف",
+        "quantity": "الكمية",
+        "lineTotal": "إجمالي البند",
+        "unitCost": "تكلفة الوحدة",
+        "partId": "القطعة",
+        "consumed": "المستهلك"
+      },
+      "issueStatusOptions": {
+        "ISSUED": "مصروف",
+        "PARTIALLY_REVERSED": "معكوس جزئيًا",
+        "REVERSED": "معكوس"
+      },
+      "reservationStatusOptions": {
+        "ACTIVE": "نشط",
+        "FULFILLED": "منفَّذ",
+        "RELEASED": "محرَّر"
+      },
+      "empty": {
+        "title": "لا توجد قطع مصروفة بعد",
+        "description": "تظهر هنا القطع المصروفة لهذه المهمة."
+      },
+      "reservationsEmpty": {
+        "title": "لا توجد حجوزات",
+        "description": "احجز مخزونًا لهذه المهمة قبل صرفه."
+      }
+    },
+    "attachments": {
+      "uploadAction": "رفع صورة أو مستند",
+      "uploadSuccess": "تم رفع المرفق.",
+      "downloadAction": "تنزيل",
+      "invalidFileTitle": "الملف غير مقبول",
+      "columns": {
+        "fileName": "الملف",
+        "purpose": "الغرض"
+      },
+      "purposeOptions": {
+        "JOB_PHOTO": "صورة المهمة",
+        "APPROVAL_EVIDENCE": "دليل الموافقة",
+        "QUALITY_EVIDENCE": "دليل الجودة",
+        "TRAINING_EVIDENCE": "دليل تدريبي"
+      },
+      "empty": {
+        "title": "لا توجد مرفقات بعد",
+        "description": "ارفع صورًا أو أدلة لهذه المهمة."
+      }
+    },
+    "history": {
+      "columns": {
+        "from": "من",
+        "to": "إلى",
+        "at": "الوقت",
+        "reason": "السبب"
+      },
+      "empty": {
+        "title": "لا يوجد سجل مراحل بعد"
+      }
+    }
+  },
+  "inventory": {
+    "stores": {
+      "title": "المتاجر",
+      "createAction": "متجر جديد",
+      "columns": { "code": "الرمز", "name": "الاسم" },
+      "statusOptions": { "ACTIVE": "نشط", "INACTIVE": "غير نشط" },
+      "empty": { "title": "لا توجد متاجر", "description": "أنشئ متجرًا لبدء تتبع المخزون." },
+      "create": { "success": "تم إنشاء المتجر." },
+      "edit": { "title": "تعديل المتجر", "success": "تم تحديث المتجر." }
+    },
+    "parts": {
+      "title": "كتالوج القطع",
+      "createAction": "قطعة جديدة",
+      "searchPlaceholder": "ابحث بالاسم",
+      "columns": { "sku": "رمز الصنف", "name": "الاسم", "category": "الفئة", "sellingPrice": "سعر البيع" },
+      "empty": { "title": "لا توجد قطع", "description": "جرّب بحثًا أو تصفية مختلفة، أو أضف قطعة جديدة." },
+      "create": {
+        "title": "قطعة جديدة",
+        "success": "تم إنشاء القطعة.",
+        "skuHint": "أحرف كبيرة وأرقام ونقاط وشرطات أو شرطات سفلية فقط.",
+        "nameEnLabel": "الاسم (إنجليزي)",
+        "nameArLabel": "الاسم (عربي)",
+        "unitOfMeasureLabel": "وحدة القياس",
+        "sellingPriceLabel": "سعر البيع"
+      },
+      "detail": {
+        "title": "القطعة",
+        "backToList": "العودة إلى القطع",
+        "saveSuccess": "تم تحديث القطعة.",
+        "barcodeLabel": "الباركود",
+        "compatibilityLabel": "توافق المركبات",
+        "noCompatibility": "لا يوجد توافق مدرج",
+        "levelsSuccess": "تم تحديث مستويات المخزون."
+      }
+    },
+    "stockBalances": {
+      "title": "أرصدة المخزون",
+      "columns": {
+        "onHand": "في المخزون",
+        "reserved": "محجوز",
+        "available": "متاح",
+        "minLevel": "الحد الأدنى",
+        "maxLevel": "الحد الأقصى",
+        "averageCost": "متوسط التكلفة"
+      },
+      "belowMinimum": "أقل من الحد الأدنى",
+      "ok": "جيد",
+      "editLevels": "تعديل المستويات",
+      "empty": { "title": "لا توجد أرصدة مخزون", "description": "لا يوجد رصيد مخزون مسجل لهذه القطعة في أي متجر بعد." }
+    },
+    "movements": {
+      "title": "حركات المخزون",
+      "columns": {
+        "occurredAt": "الوقت",
+        "type": "النوع",
+        "onHandDelta": "تغيّر المخزون",
+        "reservedDelta": "تغيّر الحجز",
+        "reason": "السبب"
+      },
+      "typeOptions": {
+        "RECEIPT": "استلام",
+        "ISSUE": "صرف",
+        "ISSUE_REVERSAL": "عكس صرف",
+        "RESERVATION": "حجز",
+        "RESERVATION_RELEASE": "تحرير حجز",
+        "ADJUSTMENT": "تسوية"
+      },
+      "empty": {
+        "title": "لا توجد حركات مخزون",
+        "description": "سجل المخزون للإضافة فقط؛ تظهر الحركات هنا فور حدوثها."
+      }
+    },
+    "reconciliation": {
+      "title": "مطابقة المخزون",
+      "columns": {
+        "ledgerOnHand": "المخزون في السجل",
+        "balanceOnHand": "المخزون في الرصيد",
+        "ledgerReserved": "المحجوز في السجل",
+        "balanceReserved": "المحجوز في الرصيد"
+      },
+      "healthy": "متطابق",
+      "mismatchesFound": "توجد تباينات",
+      "generatedAt": "أُنشئ في {{time}}",
+      "checkedBalances": "تم فحص {{count}} رصيد",
+      "noMismatchesMessage": "كل رصيد تم فحصه يطابق السجل."
+    },
+    "adjustments": {
+      "title": "تسويات المخزون",
+      "createAction": "طلب تسوية",
+      "decideAction": "اتخاذ قرار",
+      "createSuccess": "تم طلب التسوية.",
+      "decisionSuccess": "تم تسجيل القرار.",
+      "quantityHint": "موجب للزيادة في المخزون، وسالب للنقصان. لا يمكن أن يكون صفرًا.",
+      "columns": { "quantityDelta": "تغيّر الكمية", "reason": "السبب" },
+      "reasonOptions": {
+        "DAMAGE": "تلف",
+        "LOSS": "فقدان",
+        "FOUND": "عُثر عليه",
+        "COUNT_CORRECTION": "تصحيح جرد",
+        "OTHER": "أخرى"
+      },
+      "statusOptions": { "PENDING_APPROVAL": "قيد الموافقة", "APPROVED": "موافق عليه", "REJECTED": "مرفوض" },
+      "empty": {
+        "title": "لا توجد تسويات مخزون",
+        "description": "اطلب تسوية لتصحيح الكمية المتوفرة بعد تلف أو فقدان أو جرد."
+      }
+    }
+  },
+  "purchasing": {
+    "vendors": {
+      "title": "الموردون",
+      "createAction": "مورد جديد",
+      "searchPlaceholder": "ابحث بالاسم",
+      "columns": { "code": "الرمز", "name": "الاسم", "contact": "جهة الاتصال", "phone": "الهاتف" },
+      "empty": { "title": "لا يوجد موردون", "description": "أضف موردًا لبدء إنشاء أوامر الشراء." },
+      "create": { "success": "تم إنشاء المورد." },
+      "edit": { "title": "تعديل المورد", "success": "تم تحديث المورد." }
+    },
+    "orders": {
+      "title": "أوامر الشراء",
+      "createAction": "أمر شراء جديد",
+      "vendorFilter": "معرّف المورد",
+      "vendorLabel": "المورد",
+      "linesLabel": "بنود الأمر",
+      "addLine": "إضافة بند",
+      "unitCostLabel": "تكلفة الوحدة",
+      "notesLabel": "ملاحظات",
+      "columns": {
+        "poNumber": "رقم أمر الشراء",
+        "total": "الإجمالي",
+        "expectedDelivery": "التسليم المتوقع",
+        "quantityOrdered": "المطلوب",
+        "quantityAccepted": "المقبول",
+        "quantityRejected": "المرفوض",
+        "lineTotal": "إجمالي البند"
+      },
+      "statusOptions": {
+        "DRAFT": "مسودة",
+        "PENDING_APPROVAL": "قيد الموافقة",
+        "APPROVED": "موافق عليه",
+        "REJECTED": "مرفوض",
+        "PARTIALLY_RECEIVED": "مستلم جزئيًا",
+        "RECEIVED": "مستلم",
+        "CANCELLED": "ملغى"
+      },
+      "empty": { "title": "لا توجد أوامر شراء", "description": "جرّب تصفية مختلفة، أو أنشئ أمر شراء جديدًا." },
+      "approvalsProgress": "الموافقات المسجلة",
+      "create": {
+        "title": "أمر شراء جديد",
+        "success": "تم إنشاء أمر الشراء.",
+        "submit": "إنشاء أمر الشراء",
+        "submitting": "جارٍ الإنشاء…"
+      },
+      "detail": {
+        "title": "أمر الشراء",
+        "backToList": "العودة إلى أوامر الشراء",
+        "submitAction": "إرسال للموافقة",
+        "cancelAction": "إلغاء الأمر",
+        "submitSuccess": "تم الإرسال للموافقة.",
+        "cancelSuccess": "تم إلغاء أمر الشراء.",
+        "cancelConfirmTitle": "إلغاء أمر الشراء هذا؟"
+      },
+      "approvals": {
+        "title": "الموافقات",
+        "decideAction": "تسجيل القرار",
+        "success": "تم تسجيل القرار.",
+        "empty": "لا توجد قرارات موافقة بعد.",
+        "decidedAt": "وقت القرار"
+      },
+      "receipts": {
+        "title": "إيصالات الاستلام",
+        "createAction": "تسجيل إيصال استلام",
+        "success": "تم تسجيل إيصال الاستلام.",
+        "empty": "لا توجد إيصالات استلام بعد.",
+        "columns": { "receiptNumber": "رقم الإيصال", "receivedAt": "تاريخ الاستلام", "lines": "البنود" },
+        "receivedLabel": "المستلم",
+        "acceptedLabel": "المقبول",
+        "rejectedLabel": "المرفوض",
+        "rejectionReasonLabel": "سبب الرفض"
+      }
+    },
+    "policy": {
+      "title": "سياسة موافقة المشتريات",
+      "success": "تم تحديث سياسة الموافقة.",
+      "updatedAt": "آخر تحديث {{time}}",
+      "minimumTotalLabel": "الحد الأدنى للإجمالي",
+      "requiredApprovalsLabel": "الموافقات المطلوبة",
+      "addTier": "إضافة مستوى"
+    }
+  },
+  "bays": {
+    "title": "الأرصفة",
+    "createAction": "رصيف جديد",
+    "statusFilter": "الحالة",
+    "columns": {
+      "code": "الرمز",
+      "name": "الاسم",
+      "capacity": "السعة",
+      "status": "الحالة",
+      "createdAt": "تاريخ الإنشاء"
+    },
+    "statusOptions": {
+      "ACTIVE": "نشط",
+      "MAINTENANCE": "صيانة",
+      "INACTIVE": "غير نشط"
+    },
+    "empty": {
+      "title": "لا توجد أرصفة",
+      "description": "أنشئ رصيفًا لبدء جدولة المهام والدورات التدريبية."
+    },
+    "viewCalendar": "عرض التقويم",
+    "create": {
+      "title": "رصيف جديد",
+      "codeLabel": "الرمز",
+      "nameLabel": "الاسم",
+      "capacityLabel": "السعة",
+      "organizationScopeLabel": "نطاق المؤسسة",
+      "submit": "إنشاء الرصيف",
+      "submitting": "جارٍ الإنشاء…",
+      "success": "تم إنشاء الرصيف."
+    },
+    "edit": {
+      "title": "تعديل الرصيف",
+      "nameLabel": "الاسم",
+      "capacityLabel": "السعة",
+      "statusLabel": "الحالة",
+      "submit": "حفظ التغييرات",
+      "submitting": "جارٍ الحفظ…",
+      "success": "تم تحديث الرصيف.",
+      "statusChangeConfirmTitle": "تغيير حالة توفر الرصيف؟",
+      "statusChangeConfirmDescription": "لا يتم إلغاء الحجوزات الحالية في هذا الرصيف تلقائيًا. ستفشل الجدولة والتعيين المستقبلي أثناء عدم توفر الرصيف."
+    },
+    "calendar": {
+      "title": "تقويم الرصيف",
+      "backToList": "العودة إلى الأرصفة",
+      "fromLabel": "من",
+      "toLabel": "إلى",
+      "apply": "تطبيق",
+      "windowError": "يجب ألا يتجاوز النطاق الزمني 31 يومًا وأن يكون تاريخ البدء قبل تاريخ الانتهاء.",
+      "empty": {
+        "title": "لا توجد إدخالات في هذا النطاق",
+        "description": "لا توجد مهام أو دورات تدريبية مجدولة لهذا الرصيف في النطاق الزمني المحدد."
+      },
+      "jobEntry": "مهمة",
+      "trainingEntry": "دورة تدريبية",
+      "noCustomerNotice": "لا تعرض إدخالات المهام أبدًا معلومات العميل أو المركبة."
+    }
+  },
+  "predictions": {
+    "title": "التوقعات",
+    "description": "اقتراحات استشارية قائمة على القواعد وإشارات مخاطر. كل نتيجة استشارية فقط — إصدار أمر شراء أو تقييم أو اعتماد شهادة طالب يظل دائمًا إجراءً بشريًا صريحًا منفصلًا.",
+    "advisoryNotice": "استشاري فقط — ليس قرارًا تلقائيًا",
+    "advisoryReminder": "هذا اقتراح من القاعدة الحسابية (أو نموذج الذكاء الاصطناعي الاختياري)، وليس إجراءً تلقائيًا أبدًا. يجب على شخص مراجعته وتسجيل قرار صريح قبل تغيير أي شيء.",
+    "unavailableTitle": "غير متاح بعد",
+    "unavailableMessage": "هذه القدرة غير متاحة بعد من الخادم. لم يتم تحميل أي بيانات وهمية.",
+    "list": {
+      "title": "التوقعات",
+      "runNow": "تشغيل القاعدة الحسابية الآن",
+      "runReorder": "تشغيل اقتراحات إعادة الطلب",
+      "runRisk": "تشغيل مخاطر التدريب",
+      "runSuccess": "اكتمل التشغيل: تم توليد {{count}} توقع.",
+      "runFallbackNotice": "كانت خدمة الذكاء الاصطناعي غير متاحة، لذا تراجع هذا التشغيل إلى القاعدة الحسابية.",
+      "typeFilter": "النوع",
+      "statusFilter": "الحالة",
+      "riskLevelFilter": "مستوى الخطورة",
+      "storeIdFilter": "معرّف المخزن",
+      "partIdFilter": "معرّف القطعة",
+      "studentIdFilter": "معرّف الطالب",
+      "courseIdFilter": "معرّف الدورة",
+      "columns": {
+        "generatedAt": "تاريخ التوليد",
+        "type": "النوع",
+        "summary": "الملخص",
+        "detail": "التفاصيل",
+        "source": "المصدر",
+        "decision": "القرار"
+      },
+      "typeOptions": {
+        "REORDER_SUGGESTION": "اقتراح إعادة طلب",
+        "TRAINING_RISK": "مخاطر تدريب"
+      },
+      "statusOptions": {
+        "ACTIVE": "نشط",
+        "ACCEPTED": "مقبول",
+        "OVERRIDDEN": "تم تجاوزه",
+        "DISMISSED": "مرفوض",
+        "SUPERSEDED": "تم استبداله"
+      },
+      "riskLevelOptions": {
+        "LOW": "منخفض",
+        "MEDIUM": "متوسط",
+        "HIGH": "مرتفع"
+      },
+      "decideAction": "اتخاذ قرار",
+      "empty": {
+        "title": "لا توجد توقعات",
+        "description": "جرّب تصفية مختلفة، أو شغّل القاعدة الحسابية الآن."
+      }
+    },
+    "detail": {
+      "title": "التوقع",
+      "backToList": "العودة إلى التوقعات",
+      "generatedAt": "تاريخ التوليد",
+      "inputTitle": "مدخلات النموذج",
+      "resultTitle": "النتيجة المقترحة",
+      "explanationTitle": "التفسير",
+      "decisionTitle": "القرار",
+      "evaluationTitle": "نتيجة التقييم",
+      "reorder": {
+        "storeId": "معرّف المخزن",
+        "partId": "معرّف القطعة",
+        "partSku": "رمز الصنف",
+        "onHand": "الكمية المتوفرة",
+        "reserved": "المحجوز",
+        "available": "المتاح",
+        "minLevel": "الحد الأدنى",
+        "maxLevel": "الحد الأقصى",
+        "openPurchaseOrderQuantity": "كمية أوامر الشراء المفتوحة",
+        "averageWeeklyConsumption": "متوسط الاستهلاك الأسبوعي",
+        "lookbackWeeks": "فترة المراجعة (أسابيع)",
+        "suggestedQuantity": "الكمية المقترحة",
+        "estimatedWeeksOfCover": "أسابيع التغطية المقدرة"
+      },
+      "trainingRisk": {
+        "studentId": "معرّف الطالب",
+        "courseId": "معرّف الدورة",
+        "attendancePercent": "نسبة الحضور",
+        "missingAttendanceSessions": "جلسات الحضور الناقصة",
+        "unsignedAssessmentCount": "التقييمات غير الموقعة",
+        "unmetCompetencyCount": "الكفاءات غير المستوفاة",
+        "riskLevel": "مستوى الخطورة",
+        "flags": "المؤشرات"
+      },
+      "flagOptions": {
+        "MISSING_ATTENDANCE": "حضور ناقص",
+        "UNSIGNED_ASSESSMENTS": "تقييمات غير موقعة",
+        "UNMET_COMPETENCIES": "كفاءات غير مستوفاة"
+      },
+      "decidedBy": "تم اتخاذ القرار بواسطة",
+      "decidedAt": "تاريخ القرار",
+      "overrideReason": "سبب التجاوز",
+      "overrideQuantity": "الكمية بعد التجاوز",
+      "note": "ملاحظة",
+      "noDecision": "لم يُسجَّل أي قرار بعد.",
+      "evaluationOutcomes": {
+        "PENDING": "قيد الانتظار",
+        "CONFIRMED": "مؤكَّد",
+        "NOT_CONFIRMED": "غير مؤكَّد",
+        "NOT_APPLICABLE": "غير قابل للتطبيق"
+      },
+      "noEvaluation": "لم يتم التقييم بعد."
+    },
+    "decide": {
+      "title": "تسجيل قرار",
+      "decisionLabel": "القرار",
+      "decisionOptions": {
+        "ACCEPTED": "قبول",
+        "OVERRIDDEN": "تجاوز",
+        "DISMISSED": "رفض"
+      },
+      "overrideReasonLabel": "سبب التجاوز",
+      "overrideReasonHint": "مطلوب عند التجاوز (3–500 حرف).",
+      "overrideQuantityLabel": "الكمية بعد التجاوز",
+      "noteLabel": "ملاحظة",
+      "submit": "تسجيل القرار",
+      "success": "تم تسجيل القرار.",
+      "advisoryReminder": "هذا يسجل قرارك فقط. يظل إصدار أمر الشراء أو تقييم الطالب أو اعتماد شهادته دائمًا إجراءً صريحًا منفصلًا."
+    },
+    "settings": {
+      "title": "إعدادات التوقعات",
+      "description": "إعدادات القاعدة الحسابية ومفتاح تفعيل الذكاء الاصطناعي. تعمل القاعدة الحسابية دائمًا بغض النظر عن هذا المفتاح.",
+      "reorderLookbackWeeksLabel": "فترة مراجعة إعادة الطلب (أسابيع)",
+      "mlServiceEnabledLabel": "تفعيل خدمة الذكاء الاصطناعي الاختيارية",
+      "mlServiceEnabledHint": "عند التفعيل مع تعذر الوصول، يتم التراجع تلقائيًا إلى القاعدة الحسابية.",
+      "baselineVersionLabel": "إصدار القاعدة الحسابية",
+      "save": "حفظ الإعدادات",
+      "success": "تم تحديث إعدادات التوقعات."
+    }
+  }
+}

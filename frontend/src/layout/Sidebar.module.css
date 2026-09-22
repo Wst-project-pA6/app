@@ -1,0 +1,105 @@
+.sidebar {
+  background: var(--shell-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-inline-end: 1px solid var(--color-border);
+  width: var(--shell-sidebar-width);
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width var(--transition-normal);
+}
+
+.collapsed {
+  width: var(--shell-sidebar-width-collapsed);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.link svg {
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  background: rgb(var(--module-accent-rgb) / 0.08);
+  color: var(--color-text);
+}
+
+.active {
+  background: rgb(var(--module-accent-rgb) / 0.14);
+  border-color: rgb(var(--module-accent-rgb) / 0.3);
+  color: var(--module-accent);
+  font-weight: 700;
+}
+
+.active svg {
+  color: var(--module-accent);
+}
+
+.labelCollapsed {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@media (max-width: 63.9375rem) {
+  .sidebar {
+    position: fixed;
+    inset-block: var(--shell-header-height) 0;
+    inset-inline-start: 0;
+    z-index: 90;
+    width: 18rem;
+    max-width: 85vw;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-normal);
+  }
+
+  [dir='rtl'] .sidebar {
+    transform: translateX(100%);
+  }
+
+  .mobileOpen {
+    transform: translateX(0);
+  }
+
+  .collapsed {
+    width: 18rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .sidebar {
+    position: sticky;
+    top: var(--shell-header-height);
+    height: calc(100vh - var(--shell-header-height));
+  }
+}

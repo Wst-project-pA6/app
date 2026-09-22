@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  min-width: 14rem;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: var(--space-3);
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input {
+  padding-inline-start: calc(var(--space-3) * 2 + 1rem);
+}

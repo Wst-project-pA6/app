@@ -1,0 +1,1490 @@
+{
+  "training": {
+    "sections": {
+      "terms": "Training terms",
+      "courses": "Courses",
+      "mentors": "Mentors",
+      "students": "Students",
+      "groups": "Training groups",
+      "enrollments": "Enrollments",
+      "sessions": "Training sessions",
+      "calendar": "Training calendar",
+      "attendance": "Attendance",
+      "tasks": "Practical tasks",
+      "assessments": "Assessments",
+      "competencies": "Competencies",
+      "certificates": "Certificates",
+      "conflicts": "Scheduling conflicts",
+      "transitions": "Session transitions",
+      "record-attendance": "Record attendance",
+      "sign-off": "Supervisor sign-off",
+      "coverage": "Competency coverage",
+      "eligibility": "Completion eligibility",
+      "revoke": "Revoke certificate"
+    },
+    "actions": {
+      "listTrainingTerms": "Training terms",
+      "createTrainingTerm": "Create term",
+      "updateTrainingTerm": "Update term",
+      "listCourses": "Courses",
+      "createCourse": "Create course",
+      "updateCourse": "Update course",
+      "listMentors": "Mentors",
+      "listStudents": "Students",
+      "createStudent": "Create student",
+      "getStudent": "Student details",
+      "updateStudent": "Update student",
+      "getCompetencyCoverage": "Load competency coverage",
+      "getCompletionEligibility": "Check completion eligibility",
+      "listTrainingGroups": "Training groups",
+      "createTrainingGroup": "Create group",
+      "updateTrainingGroup": "Update group",
+      "listEnrollments": "Enrollments",
+      "createEnrollment": "Enroll student",
+      "updateEnrollment": "Withdraw enrollment",
+      "listTrainingSessions": "Training sessions",
+      "createTrainingSession": "Create draft session",
+      "getTrainingSession": "Session details",
+      "updateTrainingSession": "Update session",
+      "checkTrainingSessionConflicts": "Check scheduling conflicts",
+      "createConflictOverrides": "Authorize conflict override",
+      "transitionTrainingSession": "Change session status",
+      "recordSessionAttendance": "Record attendance",
+      "listAttendanceRecords": "Attendance records",
+      "listPracticalTasks": "Practical tasks",
+      "createPracticalTask": "Create practical task",
+      "updatePracticalTask": "Update practical task",
+      "listAssessments": "Assessments",
+      "createAssessment": "Record assessment",
+      "updateAssessment": "Revise assessment",
+      "signOffAssessment": "Supervisor sign-off",
+      "listCompetencies": "Competencies",
+      "createCompetency": "Create competency",
+      "updateCompetency": "Update competency",
+      "listCertificates": "Certificates",
+      "issueCertificate": "Issue certificate",
+      "getCertificate": "Certificate details",
+      "revokeCertificate": "Revoke certificate",
+      "verifyCertificate": "Verify certificate"
+    },
+    "fields": {
+      "items": "Items",
+      "id": "Id",
+      "createdAt": "Created at",
+      "updatedAt": "Updated at",
+      "createdBy": "Created by",
+      "updatedBy": "Updated by",
+      "organizationScopeId": "Organization scope id",
+      "name": "Name",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "status": "Status",
+      "page": "Page",
+      "pageSize": "Page size",
+      "totalItems": "Total items",
+      "totalPages": "Total pages",
+      "sort": "Sort",
+      "termId": "Term id",
+      "code": "Code",
+      "en": "En",
+      "ar": "Ar",
+      "description": "Description",
+      "tasks": "Tasks",
+      "taskId": "Task id",
+      "required": "Required",
+      "minimumAttendancePercent": "Minimum attendance percent",
+      "q": "Q",
+      "courseId": "Course id",
+      "displayName": "Display name",
+      "userId": "User id",
+      "studentNumber": "Student number",
+      "groupId": "Group id",
+      "studentId": "Student id",
+      "overallPercent": "Overall percent",
+      "competencies": "Competencies",
+      "competencyId": "Competency id",
+      "requiredTasks": "Required tasks",
+      "signedPassedRequiredTasks": "Signed passed required tasks",
+      "pendingUnsignedTasks": "Pending unsigned tasks",
+      "coveragePercent": "Coverage percent",
+      "generatedAt": "Generated at",
+      "eligible": "Eligible",
+      "attendancePercent": "Attendance percent",
+      "unmetConditions": "Unmet conditions",
+      "message": "Message",
+      "evaluatedAt": "Evaluated at",
+      "enrolledCount": "Enrolled count",
+      "enrolledAt": "Enrolled at",
+      "withdrawnAt": "Withdrawn at",
+      "withdrawalReason": "Withdrawal reason",
+      "reason": "Reason",
+      "enrollmentId": "Enrollment id",
+      "title": "Title",
+      "bayId": "Bay id",
+      "mentorId": "Mentor id",
+      "startsAt": "Starts at",
+      "endsAt": "Ends at",
+      "cancellationReason": "Cancellation reason",
+      "activeConflictOverrideCount": "Active conflict override count",
+      "version": "Version",
+      "from": "From",
+      "to": "To",
+      "sessionId": "Session id",
+      "hasConflicts": "Has conflicts",
+      "canPublish": "Can publish",
+      "conflicts": "Conflicts",
+      "conflictKey": "Conflict key",
+      "kind": "Kind",
+      "overridable": "Overridable",
+      "overridden": "Overridden",
+      "conflictingReference": "Conflicting reference",
+      "referenceId": "Reference id",
+      "referenceLabel": "Reference label",
+      "conflictKeys": "Conflict keys",
+      "toStatus": "To status",
+      "records": "Records",
+      "note": "Note",
+      "expectedMinutes": "Expected minutes",
+      "result": "Result",
+      "timeOnTaskMinutes": "Time on task minutes",
+      "mentorNote": "Mentor note",
+      "evidenceAttachmentIds": "Evidence attachment ids",
+      "assessedBy": "Assessed by",
+      "assessedAt": "Assessed at",
+      "signOffStatus": "Sign off status",
+      "signedOffBy": "Signed off by",
+      "signedOffAt": "Signed off at",
+      "signOffNote": "Sign off note",
+      "countsTowardCompletion": "Counts toward completion",
+      "changeReason": "Change reason",
+      "assessmentId": "Assessment id",
+      "decision": "Decision",
+      "certificateNumber": "Certificate number",
+      "issuedAt": "Issued at",
+      "issuedBy": "Issued by",
+      "revokedAt": "Revoked at",
+      "revokedBy": "Revoked by",
+      "revocationReason": "Revocation reason",
+      "verificationToken": "Verification token",
+      "certificateId": "Certificate id",
+      "holderDisplayName": "Holder display name",
+      "courseName": "Course name"
+    },
+    "values": {
+      "PLANNED": "Planned",
+      "ACTIVE": "Active",
+      "CLOSED": "Closed",
+      "DRAFT": "Draft",
+      "ARCHIVED": "Archived",
+      "INACTIVE": "Inactive",
+      "ENROLLMENT_NOT_ACTIVE": "Enrollment not active",
+      "ATTENDANCE_BELOW_MINIMUM": "Attendance below minimum",
+      "REQUIRED_TASK_NOT_PASSED": "Required task not passed",
+      "ASSESSMENT_UNSIGNED": "Assessment unsigned",
+      "CERTIFICATE_ALREADY_ISSUED": "Certificate already issued",
+      "WITHDRAWN": "Withdrawn",
+      "COMPLETED": "Completed",
+      "PUBLISHED": "Published",
+      "CANCELLED": "Cancelled",
+      "BAY_JOB_CONFLICT": "Bay job conflict",
+      "BAY_SESSION_CONFLICT": "Bay session conflict",
+      "BAY_UNAVAILABLE": "Bay unavailable",
+      "BAY_CAPACITY_EXCEEDED": "Bay capacity exceeded",
+      "MENTOR_SESSION_CONFLICT": "Mentor session conflict",
+      "MENTOR_WORKSHOP_CONFLICT": "Mentor workshop conflict",
+      "JOB": "Job",
+      "TRAINING_SESSION": "Training session",
+      "PRESENT": "Present",
+      "ABSENT": "Absent",
+      "LATE": "Late",
+      "EXCUSED": "Excused",
+      "PASS": "Pass",
+      "FAIL": "Fail",
+      "NEEDS_IMPROVEMENT": "Needs improvement",
+      "PENDING": "Pending",
+      "SIGNED_OFF": "Signed off",
+      "RETURNED": "Returned",
+      "ISSUED": "Issued",
+      "REVOKED": "Revoked"
+    },
+    "remove": "Remove",
+    "addItem": "Add {{field}}",
+    "minimumItems": "At least {{count}} items are required.",
+    "timestampHint": "Use an ISO timestamp with timezone, e.g. YYYY-MM-DDTHH:mm:ssZ.",
+    "choose": "Choose…",
+    "unavailableValue": "Unavailable",
+    "empty": "No records",
+    "yes": "Yes",
+    "no": "No",
+    "notAvailable": "Not yet available. The server returned 404/501; this feature may not be implemented yet, or the requested record may not be available.",
+    "verificationNotFound": "Verification unavailable: no public certificate was returned for this token. The verification service may not be available yet.",
+    "rateLimited": "Too many verification requests. Please try again later.",
+    "verificationError": "Certificate verification could not be completed. Please try again.",
+    "assessmentHint": "Entering a result leaves it pending supervisor sign-off. Only the server decides whether it counts toward completion.",
+    "signoffHint": "Supervisor decision is separate from assessment entry. The assessor cannot sign off their own result; the server enforces this restriction.",
+    "revokeWarning": "Revocation is permanent. Confirm the certificate and provide a reason.",
+    "confirmAction": "I confirm this action for the selected record.",
+    "actionBlocked": "Select a record or check its state and separation-of-duties requirements before proceeding.",
+    "invalidForm": "Complete the required fields and confirmation. Check array entries, timestamps, and any required reason or return note.",
+    "saved": "The server confirmed the request.",
+    "calendarHint": "Chronological session agenda. Filter by time window, group, bay, or mentor. Only server-provided sessions and statuses are shown.",
+    "applyFilters": "Apply filters",
+    "details": "Details",
+    "noDetailEndpoint": "A standalone detail endpoint is not available in the contract. Open a record from its list.",
+    "verify": "Verify certificate",
+    "load": "Load result",
+    "computedHint": "Eligibility and coverage are evaluated by the server. Missing results are unavailable."
+  },
+  "app": {
+    "name": "WST Workshop Manager"
+  },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "yes": "Yes",
+    "no": "No",
+    "requestId": "Request ID: {{id}}",
+    "search": "Search",
+    "filters": "Filters",
+    "clearFilters": "Clear filters",
+    "allStatuses": "All statuses",
+    "allTypes": "All types",
+    "actions": "Actions",
+    "status": "Status",
+    "create": "Create",
+    "edit": "Edit",
+    "view": "View",
+    "sortBy": "Sort by",
+    "ascending": "Ascending",
+    "descending": "Descending",
+    "noResults": "No results found.",
+    "noResultsHint": "Try adjusting your search or filters.",
+    "optional": "Optional",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "unassigned": "Unassigned"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "theme": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Enter your workshop credentials to continue.",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "invalidCredentials": "The email or password you entered is incorrect.",
+      "genericError": "We couldn't sign you in. Please try again.",
+      "rateLimited": "Too many attempts. Try again in {{seconds}} seconds.",
+      "noAccount": "New to the workshop?",
+      "createAccount": "Create an account"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Register to request access. An administrator will assign your role and organization scope before you can use the workshop tools.",
+      "displayNameLabel": "Full name",
+      "emailLabel": "Email address",
+      "localeLabel": "Preferred locale",
+      "passwordLabel": "Password",
+      "confirmPasswordLabel": "Confirm password",
+      "passwordsMustMatch": "Passwords must match.",
+      "submit": "Create account",
+      "submitting": "Creating account…",
+      "successMessage": "Account created. Sign in once an administrator has granted your access.",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "changePassword": {
+      "title": "Change your password",
+      "subtitle": "Your administrator requires a new password before you can continue.",
+      "currentPasswordLabel": "Current password",
+      "newPasswordLabel": "New password",
+      "newPasswordHint": "At least 12 characters.",
+      "submit": "Change password",
+      "submitting": "Changing password…",
+      "success": "Password changed. Continuing…"
+    },
+    "logout": "Sign out",
+    "sessionExpired": "Your session has expired. Please sign in again.",
+    "restoring": "Restoring your session…"
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email address.",
+    "minLength": "Must be at least {{count}} characters.",
+    "passwordsMustDiffer": "The new password must be different from the current password.",
+    "phoneE164": "Enter a phone number in international format, e.g. +15551234567.",
+    "positiveInteger": "Enter a whole number greater than zero.",
+    "nonNegativeInteger": "Enter a whole number of zero or more.",
+    "reminderDueRequired": "Provide at least a due date or a due mileage.",
+    "vinFormat": "Enter a valid VIN (letters and digits only, no I, O or Q)."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "access": "Access Management",
+    "customers": "Customers",
+    "vehicles": "Vehicles",
+    "bays": "Bays",
+    "jobs": "Job Cards",
+    "inventory": "Inventory",
+    "purchasing": "Purchasing",
+    "invoices": "Invoices",
+    "training": "Training",
+    "reports": "Reports & Exports",
+    "predictions": "Predictions",
+    "audit": "Audit Events"
+  },
+  "shell": {
+    "toggleSidebar": "Toggle navigation sidebar",
+    "openMobileNav": "Open navigation menu",
+    "closeMobileNav": "Close navigation menu",
+    "userMenu": "Account menu",
+    "skipToContent": "Skip to main content"
+  },
+  "home": {
+    "title": "Welcome, {{name}}",
+    "identity": "Identity",
+    "email": "Email",
+    "roles": "Roles",
+    "organizationScopes": "Organization scopes",
+    "noScopes": "No organization scopes assigned.",
+    "permissions": "Permissions",
+    "permissionCount": "{{count}} permission granted",
+    "permissionCount_other": "{{count}} permissions granted",
+    "permissionsNote": "This list reflects what /auth/me returned for your account and is shown for reference only. The backend, not this list, enforces every action."
+  },
+  "pendingAccess": {
+    "title": "Your account is awaiting access",
+    "message": "{{email}} is registered but has no role or organization scope yet. An administrator must assign both before you can use the workshop tools. Check back after they do, or refresh below.",
+    "refresh": "Refresh access"
+  },
+  "pendingModule": {
+    "title": "{{module}}",
+    "message": "Feature integration pending. This module's screens will be implemented in a later stage."
+  },
+  "forbidden": {
+    "title": "Access denied",
+    "message": "You don't have permission to view this page. If you believe this is a mistake, contact your administrator.",
+    "backHome": "Return to dashboard"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you're looking for doesn't exist or may have moved.",
+    "backHome": "Return to dashboard"
+  },
+  "errors": {
+    "networkError": "We couldn't reach the server. Check your connection and try again.",
+    "unknownError": "Something went wrong. Please try again.",
+    "requestFailed": "Request failed",
+    "rateLimited": "Too many requests. Try again in {{seconds}} seconds.",
+    "renderError": {
+      "title": "Something went wrong",
+      "message": "An unexpected error occurred while displaying this page.",
+      "reload": "Reload the page"
+    }
+  },
+  "access": {
+    "users": {
+      "title": "Users",
+      "createAction": "New user",
+      "searchPlaceholder": "Search by name or email",
+      "roleFilter": "Role",
+      "allRoles": "All roles",
+      "scopeFilter": "Organization scope",
+      "allScopes": "All scopes",
+      "columns": {
+        "displayName": "Name",
+        "email": "Email",
+        "status": "Status",
+        "roles": "Roles",
+        "locale": "Locale",
+        "scopes": "Scopes",
+        "createdAt": "Created"
+      },
+      "statusOptions": {
+        "ACTIVE": "Active",
+        "DISABLED": "Disabled"
+      },
+      "empty": {
+        "title": "No users found",
+        "description": "Try a different search or filter, or create a new user."
+      },
+      "scopeCount_one": "{{count}} scope",
+      "scopeCount_other": "{{count}} scopes",
+      "create": {
+        "title": "New user",
+        "emailLabel": "Email address",
+        "displayNameLabel": "Display name",
+        "localeLabel": "Preferred locale",
+        "temporaryPasswordLabel": "Temporary password",
+        "temporaryPasswordHint": "The user must change this password at first login. It is never shown again after creation.",
+        "submit": "Create user",
+        "submitting": "Creating…",
+        "success": "User created."
+      },
+      "detail": {
+        "title": "User",
+        "backToList": "Back to users",
+        "profileSection": "Profile",
+        "displayNameLabel": "Display name",
+        "localeLabel": "Preferred locale",
+        "statusLabel": "Status",
+        "resetPasswordLabel": "Reset password (optional)",
+        "resetPasswordHint": "Leave blank to keep the current password. Setting a new one forces a change at next login.",
+        "saveProfile": "Save changes",
+        "saving": "Saving…",
+        "saveSuccess": "User updated.",
+        "mustChangePassword": "Must change password at next login",
+        "lastLoginAt": "Last login",
+        "never": "Never",
+        "disableConfirmTitle": "Disable this user?",
+        "disableConfirmDescription": "Disabling revokes all of this user's active sessions immediately. They will not be able to sign in until re-enabled.",
+        "separationOfDutiesTitle": "Action not allowed",
+        "separationOfDutiesMessage": "The backend rejected this change to prevent an administrator from removing their own access."
+      },
+      "roles": {
+        "title": "Roles",
+        "description": "The permissions each role grants are shown for reference; the backend enforces them.",
+        "replaceAction": "Replace roles",
+        "submit": "Save roles",
+        "submitting": "Saving…",
+        "success": "Roles updated.",
+        "warnRemoveAdmin": "Removing the SYSTEM_ADMIN role from this user may leave the workshop without an administrator. The backend will reject this if they are the last active system administrator.",
+        "cannotEditOwn": "You cannot change your own role assignment."
+      },
+      "scopes": {
+        "title": "Organization scopes",
+        "description": "Row-level access to customers, vehicles and other records derives from these scopes.",
+        "replaceAction": "Replace scopes",
+        "submit": "Save scopes",
+        "submitting": "Saving…",
+        "success": "Organization scopes updated.",
+        "searchPlaceholder": "Search scopes"
+      }
+    },
+    "scopes": {
+      "title": "Organization Scopes",
+      "createAction": "New scope",
+      "typeFilter": "Type",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "type": "Type",
+        "status": "Status",
+        "createdAt": "Created"
+      },
+      "typeOptions": {
+        "BRANCH": "Branch",
+        "STORE": "Store",
+        "TRAINING_PROGRAM": "Training program"
+      },
+      "statusOptions": {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+      },
+      "empty": {
+        "title": "No organization scopes found",
+        "description": "Create a scope to organize branches, stores and training programs."
+      },
+      "create": {
+        "title": "New organization scope",
+        "codeLabel": "Code",
+        "nameLabel": "Name",
+        "typeLabel": "Type",
+        "parentLabel": "Parent scope",
+        "parentHint": "Optional. Leave unset for a top-level scope.",
+        "submit": "Create scope",
+        "submitting": "Creating…",
+        "success": "Organization scope created."
+      },
+      "edit": {
+        "title": "Edit organization scope",
+        "nameLabel": "Name",
+        "statusLabel": "Status",
+        "submit": "Save changes",
+        "submitting": "Saving…",
+        "success": "Organization scope updated."
+      }
+    }
+  },
+  "customers": {
+    "title": "Customers",
+    "createAction": "New customer",
+    "searchPlaceholder": "Search by name",
+    "statusFilter": "Status",
+    "phoneFilter": "Phone",
+    "phoneFilterPlaceholder": "e.g. +15551234567",
+    "columns": {
+      "displayName": "Name",
+      "type": "Type",
+      "phone": "Phone",
+      "email": "Email",
+      "locale": "Locale",
+      "channel": "Channel",
+      "status": "Status",
+      "createdAt": "Created"
+    },
+    "statusOptions": {
+      "ACTIVE": "Active",
+      "ARCHIVED": "Archived"
+    },
+    "typeOptions": {
+      "INDIVIDUAL": "Individual",
+      "BUSINESS": "Business"
+    },
+    "channelOptions": {
+      "PHONE": "Phone",
+      "SMS": "SMS",
+      "EMAIL": "Email"
+    },
+    "empty": {
+      "title": "No customers found",
+      "description": "Try a different search or filter, or register a new customer."
+    },
+    "create": {
+      "title": "New customer",
+      "displayNameLabel": "Name",
+      "typeLabel": "Customer type",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "organizationScopeLabel": "Organization scope",
+      "contactPreferencesTitle": "Contact preferences",
+      "preferredChannelLabel": "Preferred contact channel",
+      "preferredLocaleLabel": "Preferred locale",
+      "noPreference": "No preference",
+      "submit": "Create customer",
+      "submitting": "Creating…",
+      "success": "Customer created."
+    },
+    "detail": {
+      "title": "Customer",
+      "backToList": "Back to customers",
+      "editSection": "Details",
+      "saveAction": "Save changes",
+      "saving": "Saving…",
+      "saveSuccess": "Customer updated.",
+      "viewVehicles": "View vehicles for this customer",
+      "viewStatement": "View customer statement",
+      "archiveAction": "Archive customer",
+      "archiveConfirmTitle": "Archive this customer?",
+      "archiveConfirmDescription": "Archived customers are hidden from active workflows. This cannot be reversed from here.",
+      "reactivateAction": "Reactivate customer",
+      "resourceInUseTitle": "Cannot archive",
+      "resourceInUseMessage": "This customer has jobs that are not yet delivered, so it cannot be archived."
+    }
+  },
+  "vehicles": {
+    "title": "Vehicles",
+    "createAction": "New vehicle",
+    "searchPlaceholder": "Search by plate, VIN, make or model",
+    "customerFilter": "Customer",
+    "plateFilter": "Plate",
+    "vinFilter": "VIN",
+    "makeFilter": "Make",
+    "modelFilter": "Model",
+    "statusFilter": "Status",
+    "columns": {
+      "plate": "Plate",
+      "vin": "VIN",
+      "make": "Make",
+      "model": "Model",
+      "year": "Year",
+      "mileage": "Mileage",
+      "customer": "Customer",
+      "status": "Status",
+      "createdAt": "Created"
+    },
+    "statusOptions": {
+      "ACTIVE": "Active",
+      "ARCHIVED": "Archived"
+    },
+    "mileageUnitOptions": {
+      "KM": "km",
+      "MI": "mi"
+    },
+    "empty": {
+      "title": "No vehicles found",
+      "description": "Try a different search or filter, or register a new vehicle."
+    },
+    "create": {
+      "title": "New vehicle",
+      "customerLabel": "Customer",
+      "customerSearchPlaceholder": "Search customers",
+      "customerIdLabel": "Customer ID",
+      "customerIdHint": "Enter the customer's ID directly. You do not have permission to search customers.",
+      "plateLabel": "Plate",
+      "vinLabel": "VIN",
+      "makeLabel": "Make",
+      "modelLabel": "Model",
+      "yearLabel": "Year",
+      "mileageLabel": "Mileage",
+      "mileageUnitLabel": "Mileage unit",
+      "submit": "Register vehicle",
+      "submitting": "Registering…",
+      "success": "Vehicle registered.",
+      "duplicateTitle": "Duplicate vehicle",
+      "duplicateMessage": "A vehicle with this plate or VIN already exists."
+    },
+    "detail": {
+      "title": "Vehicle",
+      "backToList": "Back to vehicles",
+      "customerLink": "View customer",
+      "editSection": "Details",
+      "plateLabel": "Plate",
+      "mileageLabel": "Mileage",
+      "statusLabel": "Status",
+      "saveAction": "Save changes",
+      "saving": "Saving…",
+      "saveSuccess": "Vehicle updated.",
+      "mileageDecreaseTitle": "Mileage cannot decrease",
+      "mileageDecreaseMessage": "The backend rejected this update because mileage may only increase.",
+      "archiveAction": "Archive vehicle",
+      "archiveConfirmTitle": "Archive this vehicle?",
+      "archiveConfirmDescription": "Archived vehicles are hidden from active workflows. This cannot be reversed from here.",
+      "resourceInUseTitle": "Cannot archive",
+      "resourceInUseMessage": "This vehicle has a job that is not yet delivered, so it cannot be archived.",
+      "lastCompletedJob": "Last completed job",
+      "noCompletedJob": "No completed jobs yet.",
+      "nextService": "Next service",
+      "noNextService": "No upcoming service scheduled.",
+      "historyTab": "Service history",
+      "remindersTab": "Reminders"
+    },
+    "serviceHistory": {
+      "columns": {
+        "jobNumber": "Job #",
+        "serviceType": "Service type",
+        "complaint": "Complaint",
+        "mileageAtIntake": "Mileage at intake",
+        "deliveredAt": "Delivered"
+      },
+      "empty": {
+        "title": "No service history yet",
+        "description": "Completed jobs for this vehicle will appear here."
+      },
+      "viewJob": "View job"
+    },
+    "reminders": {
+      "title": "Service reminders",
+      "createAction": "New reminder",
+      "statusFilter": "Status",
+      "columns": {
+        "title": "Title",
+        "dueDate": "Due date",
+        "dueMileage": "Due mileage",
+        "status": "Status",
+        "notes": "Notes"
+      },
+      "statusOptions": {
+        "OPEN": "Open",
+        "DONE": "Done",
+        "CANCELLED": "Cancelled"
+      },
+      "empty": {
+        "title": "No reminders",
+        "description": "Create a reminder to track upcoming service for this vehicle."
+      },
+      "create": {
+        "title": "New reminder",
+        "titleLabel": "Title",
+        "dueDateLabel": "Due date",
+        "dueMileageLabel": "Due mileage",
+        "notesLabel": "Notes",
+        "submit": "Create reminder",
+        "submitting": "Creating…",
+        "success": "Reminder created."
+      },
+      "edit": {
+        "title": "Edit reminder",
+        "submit": "Save changes",
+        "submitting": "Saving…",
+        "success": "Reminder updated."
+      },
+      "complete": "Mark done",
+      "completeConfirmTitle": "Mark this reminder done?",
+      "completeConfirmDescription": "This closes the reminder as completed.",
+      "cancelReminder": "Cancel reminder",
+      "cancelConfirmTitle": "Cancel this reminder?",
+      "cancelConfirmDescription": "This closes the reminder without completing it.",
+      "invalidTransitionTitle": "Reminder already closed",
+      "invalidTransitionMessage": "This reminder is done or cancelled and can no longer be changed."
+    }
+  },
+  "jobs": {
+    "title": "Job Cards",
+    "createAction": "New job card",
+    "searchPlaceholder": "Search by job number or complaint",
+    "allPriorities": "All priorities",
+    "technicianFilter": "Technician ID",
+    "bayFilter": "Bay ID",
+    "columns": {
+      "jobNumber": "Job #",
+      "vehicle": "Vehicle",
+      "customer": "Customer",
+      "stage": "Stage",
+      "priority": "Priority",
+      "expectedCompletionAt": "Expected completion"
+    },
+    "stages": {
+      "RECEIVED": "Received",
+      "IN_PROGRESS": "In progress",
+      "QUALITY_CHECK": "Quality check",
+      "READY": "Ready",
+      "DELIVERED": "Delivered"
+    },
+    "priorityOptions": {
+      "LOW": "Low",
+      "NORMAL": "Normal",
+      "HIGH": "High",
+      "URGENT": "Urgent"
+    },
+    "serviceTypeOptions": {
+      "MAINTENANCE": "Maintenance",
+      "REPAIR": "Repair",
+      "DIAGNOSTIC": "Diagnostic",
+      "INSPECTION": "Inspection",
+      "OTHER": "Other"
+    },
+    "empty": {
+      "title": "No job cards found",
+      "description": "Try a different search or filter, or open a new job card."
+    },
+    "stageStepper": {
+      "label": "Job stage progress"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "assignment": "Assignment",
+      "workItems": "Work items",
+      "approvals": "Approvals",
+      "labor": "Labor",
+      "quality": "Quality",
+      "parts": "Parts",
+      "invoice": "Invoice",
+      "attachments": "Attachments",
+      "history": "History"
+    },
+    "invoicePreviewTitle": "Invoice preview",
+    "calculatedAt": "Calculated {{date}}",
+    "regenerateInvoice": "Regenerate invoice",
+    "create": {
+      "title": "New job card",
+      "vehicleLabel": "Vehicle",
+      "vehicleIdHint": "Enter the vehicle's ID directly. You do not have permission to search vehicles.",
+      "vehicleSearchPlaceholder": "Search by plate, VIN, make or model",
+      "complaintLabel": "Customer complaint",
+      "serviceTypeLabel": "Service type",
+      "priorityLabel": "Priority",
+      "mileageLabel": "Mileage at intake",
+      "expectedCompletionLabel": "Expected completion",
+      "submit": "Open job card",
+      "submitting": "Opening…",
+      "success": "Job card opened."
+    },
+    "detail": {
+      "title": "Job card",
+      "backToList": "Back to job cards",
+      "saveAction": "Save changes",
+      "saving": "Saving…",
+      "saveSuccess": "Job card updated.",
+      "transitionsTitle": "Stage actions",
+      "currentStage": "Current stage: {{stage}}",
+      "advanceTo": "Move to {{stage}}",
+      "sendToRework": "Send back to rework",
+      "noActionsAvailable": "No stage actions are available to you right now.",
+      "reworkConfirmTitle": "Send this job back to rework?",
+      "reworkConfirmDescription": "The job returns to In progress so the failed items can be corrected.",
+      "reworkReasonLabel": "Reason",
+      "transitionSuccess": "Job moved to {{stage}}."
+    },
+    "assignment": {
+      "bayLabel": "Bay",
+      "technicianLabel": "Technician",
+      "scheduledStartLabel": "Scheduled start",
+      "submit": "Save assignment",
+      "saving": "Saving…",
+      "success": "Job assigned.",
+      "conflictTitle": "Scheduling conflict"
+    },
+    "workItems": {
+      "createAction": "Add checklist item",
+      "creating": "Adding…",
+      "createSuccess": "Checklist item added.",
+      "updateSuccess": "Checklist item updated.",
+      "markDone": "Mark done",
+      "isAdditionalWorkLabel": "This is additional work requiring separate customer approval",
+      "columns": {
+        "description": "Description",
+        "additional": "Additional work"
+      },
+      "statusOptions": {
+        "PENDING": "Pending",
+        "DONE": "Done",
+        "CANCELLED": "Cancelled"
+      },
+      "empty": {
+        "title": "No checklist items yet",
+        "description": "Add the work items this job needs to complete."
+      }
+    },
+    "approvals": {
+      "createAction": "Request approval",
+      "createSuccess": "Approval request created.",
+      "decisionSuccess": "Decision recorded.",
+      "decideAction": "Record decision",
+      "decisionLabel": "Decision",
+      "methodLabel": "Method",
+      "approvedByNameLabel": "Customer representative name",
+      "notesLabel": "Notes",
+      "columns": {
+        "scope": "Scope",
+        "description": "Description"
+      },
+      "scopeOptions": {
+        "INITIAL_WORK": "Initial work",
+        "ADDITIONAL_WORK": "Additional work",
+        "SUBLET": "Sublet"
+      },
+      "statusOptions": {
+        "PENDING": "Pending",
+        "APPROVED": "Approved",
+        "REJECTED": "Rejected"
+      },
+      "methodOptions": {
+        "IN_PERSON": "In person",
+        "PHONE": "Phone",
+        "MESSAGE": "Message",
+        "EMAIL": "Email",
+        "SIGNED_FORM": "Signed form"
+      },
+      "empty": {
+        "title": "No approval requests",
+        "description": "Customer approvals for billable or additional work appear here."
+      }
+    },
+    "labor": {
+      "createAction": "Log labor",
+      "createSuccess": "Labor logged.",
+      "voidAction": "Void",
+      "voidSuccess": "Labor entry voided.",
+      "voidConfirmTitle": "Void this labor entry?",
+      "reasonLabel": "Reason",
+      "durationLabel": "Duration (minutes)",
+      "columns": {
+        "workDate": "Date",
+        "duration": "Minutes",
+        "description": "Description",
+        "amount": "Amount"
+      },
+      "statusOptions": {
+        "ACTIVE": "Active",
+        "VOIDED": "Voided"
+      },
+      "empty": {
+        "title": "No labor logged yet",
+        "description": "Technicians can log time once the job is in progress."
+      }
+    },
+    "quality": {
+      "createAction": "Record quality check",
+      "createSuccess": "Quality check recorded.",
+      "notesLabel": "Notes",
+      "notesRequiredOnFail": "Notes are required when the result is Failed.",
+      "performedAtLabel": "Performed at",
+      "resultOptions": {
+        "PASSED": "Passed",
+        "FAILED": "Failed"
+      },
+      "empty": {
+        "title": "No quality checks yet",
+        "description": "Quality checks are recorded once the job reaches Quality check."
+      }
+    },
+    "parts": {
+      "issuesTitle": "Issued parts",
+      "reservationsTitle": "Part reservations",
+      "issueAction": "Issue part",
+      "reserveAction": "Reserve part",
+      "releaseAction": "Release",
+      "reverseAction": "Reverse",
+      "issueSuccess": "Part issued.",
+      "reserveSuccess": "Part reserved.",
+      "reverseSuccess": "Issue reversed.",
+      "releaseSuccess": "Reservation released.",
+      "reverseConfirmTitle": "Reverse this part issue?",
+      "insufficientStockTitle": "Insufficient stock",
+      "partLabel": "Part",
+      "storeLabel": "Store",
+      "columns": {
+        "sku": "SKU",
+        "quantity": "Quantity",
+        "lineTotal": "Line total",
+        "unitCost": "Unit cost",
+        "partId": "Part",
+        "consumed": "Consumed"
+      },
+      "issueStatusOptions": {
+        "ISSUED": "Issued",
+        "PARTIALLY_REVERSED": "Partially reversed",
+        "REVERSED": "Reversed"
+      },
+      "reservationStatusOptions": {
+        "ACTIVE": "Active",
+        "FULFILLED": "Fulfilled",
+        "RELEASED": "Released"
+      },
+      "empty": {
+        "title": "No parts issued yet",
+        "description": "Parts issued to this job appear here."
+      },
+      "reservationsEmpty": {
+        "title": "No reservations",
+        "description": "Reserve stock for this job before it is issued."
+      }
+    },
+    "attachments": {
+      "uploadAction": "Upload photo or document",
+      "uploadSuccess": "Attachment uploaded.",
+      "downloadAction": "Download",
+      "invalidFileTitle": "File not accepted",
+      "columns": {
+        "fileName": "File",
+        "purpose": "Purpose"
+      },
+      "purposeOptions": {
+        "JOB_PHOTO": "Job photo",
+        "APPROVAL_EVIDENCE": "Approval evidence",
+        "QUALITY_EVIDENCE": "Quality evidence",
+        "TRAINING_EVIDENCE": "Training evidence"
+      },
+      "empty": {
+        "title": "No attachments yet",
+        "description": "Upload photos or evidence for this job."
+      }
+    },
+    "history": {
+      "columns": {
+        "from": "From",
+        "to": "To",
+        "at": "When",
+        "reason": "Reason"
+      },
+      "empty": {
+        "title": "No stage history yet"
+      }
+    }
+  },
+  "inventory": {
+    "stores": {
+      "title": "Stores",
+      "createAction": "New store",
+      "columns": { "code": "Code", "name": "Name" },
+      "statusOptions": { "ACTIVE": "Active", "INACTIVE": "Inactive" },
+      "empty": { "title": "No stores found", "description": "Create a store to start tracking inventory." },
+      "create": { "success": "Store created." },
+      "edit": { "title": "Edit store", "success": "Store updated." }
+    },
+    "parts": {
+      "title": "Parts Catalogue",
+      "createAction": "New part",
+      "searchPlaceholder": "Search by name",
+      "columns": { "sku": "SKU", "name": "Name", "category": "Category", "sellingPrice": "Selling price" },
+      "empty": { "title": "No parts found", "description": "Try a different search or filter, or add a new part." },
+      "create": {
+        "title": "New part",
+        "success": "Part created.",
+        "skuHint": "Uppercase letters, digits, dots, dashes or underscores.",
+        "nameEnLabel": "Name (English)",
+        "nameArLabel": "Name (Arabic)",
+        "unitOfMeasureLabel": "Unit of measure",
+        "sellingPriceLabel": "Selling price"
+      },
+      "detail": {
+        "title": "Part",
+        "backToList": "Back to parts",
+        "saveSuccess": "Part updated.",
+        "barcodeLabel": "Barcode",
+        "compatibilityLabel": "Vehicle compatibility",
+        "noCompatibility": "No compatibility listed",
+        "levelsSuccess": "Stock levels updated."
+      }
+    },
+    "stockBalances": {
+      "title": "Stock Balances",
+      "columns": {
+        "onHand": "On hand",
+        "reserved": "Reserved",
+        "available": "Available",
+        "minLevel": "Min level",
+        "maxLevel": "Max level",
+        "averageCost": "Average cost"
+      },
+      "belowMinimum": "Below minimum",
+      "ok": "OK",
+      "editLevels": "Edit levels",
+      "empty": {
+        "title": "No stock balances",
+        "description": "This part has no stock balance recorded in any store yet."
+      }
+    },
+    "movements": {
+      "title": "Stock Movements",
+      "columns": {
+        "occurredAt": "When",
+        "type": "Type",
+        "onHandDelta": "On-hand change",
+        "reservedDelta": "Reserved change",
+        "reason": "Reason"
+      },
+      "typeOptions": {
+        "RECEIPT": "Receipt",
+        "ISSUE": "Issue",
+        "ISSUE_REVERSAL": "Issue reversal",
+        "RESERVATION": "Reservation",
+        "RESERVATION_RELEASE": "Reservation release",
+        "ADJUSTMENT": "Adjustment"
+      },
+      "empty": {
+        "title": "No stock movements",
+        "description": "The inventory ledger is append-only; movements appear here as they happen."
+      }
+    },
+    "reconciliation": {
+      "title": "Stock Reconciliation",
+      "columns": {
+        "ledgerOnHand": "Ledger on hand",
+        "balanceOnHand": "Balance on hand",
+        "ledgerReserved": "Ledger reserved",
+        "balanceReserved": "Balance reserved"
+      },
+      "healthy": "Reconciled",
+      "mismatchesFound": "Mismatches found",
+      "generatedAt": "Generated {{time}}",
+      "checkedBalances": "{{count}} balances checked",
+      "noMismatchesMessage": "Every checked balance matches the ledger."
+    },
+    "adjustments": {
+      "title": "Stock Adjustments",
+      "createAction": "Request adjustment",
+      "decideAction": "Decide",
+      "createSuccess": "Adjustment requested.",
+      "decisionSuccess": "Decision recorded.",
+      "quantityHint": "Positive to increase on-hand, negative to decrease. Cannot be zero.",
+      "columns": { "quantityDelta": "Quantity change", "reason": "Reason" },
+      "reasonOptions": {
+        "DAMAGE": "Damage",
+        "LOSS": "Loss",
+        "FOUND": "Found",
+        "COUNT_CORRECTION": "Count correction",
+        "OTHER": "Other"
+      },
+      "statusOptions": { "PENDING_APPROVAL": "Pending approval", "APPROVED": "Approved", "REJECTED": "Rejected" },
+      "empty": {
+        "title": "No stock adjustments",
+        "description": "Request an adjustment to correct on-hand quantity after damage, loss or a count."
+      }
+    }
+  },
+  "purchasing": {
+    "vendors": {
+      "title": "Vendors",
+      "createAction": "New vendor",
+      "searchPlaceholder": "Search by name",
+      "columns": { "code": "Code", "name": "Name", "contact": "Contact", "phone": "Phone" },
+      "empty": { "title": "No vendors found", "description": "Add a vendor to start creating purchase orders." },
+      "create": { "success": "Vendor created." },
+      "edit": { "title": "Edit vendor", "success": "Vendor updated." }
+    },
+    "orders": {
+      "title": "Purchase Orders",
+      "createAction": "New purchase order",
+      "vendorFilter": "Vendor ID",
+      "vendorLabel": "Vendor",
+      "linesLabel": "Order lines",
+      "addLine": "Add line",
+      "unitCostLabel": "Unit cost",
+      "notesLabel": "Notes",
+      "columns": {
+        "poNumber": "PO #",
+        "total": "Total",
+        "expectedDelivery": "Expected delivery",
+        "quantityOrdered": "Ordered",
+        "quantityAccepted": "Accepted",
+        "quantityRejected": "Rejected",
+        "lineTotal": "Line total"
+      },
+      "statusOptions": {
+        "DRAFT": "Draft",
+        "PENDING_APPROVAL": "Pending approval",
+        "APPROVED": "Approved",
+        "REJECTED": "Rejected",
+        "PARTIALLY_RECEIVED": "Partially received",
+        "RECEIVED": "Received",
+        "CANCELLED": "Cancelled"
+      },
+      "empty": {
+        "title": "No purchase orders found",
+        "description": "Try a different filter, or create a new purchase order."
+      },
+      "approvalsProgress": "Approvals recorded",
+      "create": {
+        "title": "New purchase order",
+        "success": "Purchase order created.",
+        "submit": "Create purchase order",
+        "submitting": "Creating…"
+      },
+      "detail": {
+        "title": "Purchase order",
+        "backToList": "Back to purchase orders",
+        "submitAction": "Submit for approval",
+        "cancelAction": "Cancel order",
+        "submitSuccess": "Submitted for approval.",
+        "cancelSuccess": "Purchase order cancelled.",
+        "cancelConfirmTitle": "Cancel this purchase order?"
+      },
+      "approvals": {
+        "title": "Approvals",
+        "decideAction": "Record decision",
+        "success": "Decision recorded.",
+        "empty": "No approval decisions yet.",
+        "decidedAt": "Decided at"
+      },
+      "receipts": {
+        "title": "Goods Receipts",
+        "createAction": "Record goods receipt",
+        "success": "Goods receipt recorded.",
+        "empty": "No goods receipts yet.",
+        "columns": { "receiptNumber": "Receipt #", "receivedAt": "Received", "lines": "Lines" },
+        "receivedLabel": "Received",
+        "acceptedLabel": "Accepted",
+        "rejectedLabel": "Rejected",
+        "rejectionReasonLabel": "Rejection reason"
+      }
+    },
+    "policy": {
+      "title": "Purchase Approval Policy",
+      "success": "Approval policy updated.",
+      "updatedAt": "Last updated {{time}}",
+      "minimumTotalLabel": "Minimum total",
+      "requiredApprovalsLabel": "Required approvals",
+      "addTier": "Add tier"
+    }
+  },
+  "bays": {
+    "title": "Bays",
+    "createAction": "New bay",
+    "statusFilter": "Status",
+    "columns": {
+      "code": "Code",
+      "name": "Name",
+      "capacity": "Capacity",
+      "status": "Status",
+      "createdAt": "Created"
+    },
+    "statusOptions": {
+      "ACTIVE": "Active",
+      "MAINTENANCE": "Maintenance",
+      "INACTIVE": "Inactive"
+    },
+    "empty": {
+      "title": "No bays found",
+      "description": "Create a bay to start scheduling jobs and training sessions."
+    },
+    "viewCalendar": "View calendar",
+    "create": {
+      "title": "New bay",
+      "codeLabel": "Code",
+      "nameLabel": "Name",
+      "capacityLabel": "Capacity",
+      "organizationScopeLabel": "Organization scope",
+      "submit": "Create bay",
+      "submitting": "Creating…",
+      "success": "Bay created."
+    },
+    "edit": {
+      "title": "Edit bay",
+      "nameLabel": "Name",
+      "capacityLabel": "Capacity",
+      "statusLabel": "Status",
+      "submit": "Save changes",
+      "submitting": "Saving…",
+      "success": "Bay updated.",
+      "statusChangeConfirmTitle": "Change bay availability?",
+      "statusChangeConfirmDescription": "Existing bookings in this bay are not automatically cancelled. Future scheduling and assignment will fail while the bay is unavailable."
+    },
+    "calendar": {
+      "title": "Bay calendar",
+      "backToList": "Back to bays",
+      "fromLabel": "From",
+      "toLabel": "To",
+      "apply": "Apply",
+      "windowError": "The date range must be at most 31 days and the start must be before the end.",
+      "empty": {
+        "title": "No entries in this range",
+        "description": "No jobs or training sessions are scheduled for this bay in the selected window."
+      },
+      "jobEntry": "Job",
+      "trainingEntry": "Training session",
+      "noCustomerNotice": "Job entries never show customer or vehicle information."
+    }
+  },
+  "invoices": {
+    "title": "Invoices",
+    "detailTitle": "Invoice",
+    "backToList": "Back to invoices",
+    "invoiceNumberFilter": "Invoice number",
+    "draft": "Draft",
+    "emptyTitle": "No invoices found",
+    "emptyDescription": "Try another status or invoice number.",
+    "columns": {
+      "number": "Invoice #",
+      "job": "Job #",
+      "total": "Total",
+      "description": "Description",
+      "quantity": "Quantity",
+      "type": "Type"
+    },
+    "linesTitle": "Traceable lines",
+    "emptyLines": "No invoice lines",
+    "emptyLinesDescription": "The backend returned no invoice lines for this preview.",
+    "totalsTitle": "Server-calculated totals",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "taxable": "Taxable amount",
+    "tax": "Tax",
+    "total": "Total",
+    "editDraftTitle": "Edit draft",
+    "discountType": "Discount type",
+    "discountValue": "Discount value",
+    "discountReason": "Discount reason",
+    "notes": "Notes",
+    "issue": "Issue invoice",
+    "void": "Void invoice",
+    "voidReasonPrompt": "Reason for voiding this invoice",
+    "saved": "Draft invoice saved.",
+    "transitioned": "Invoice status updated.",
+    "paymentTitle": "Record exact payment",
+    "paymentMethod": "Method",
+    "paymentReference": "Reference",
+    "paymentAmount": "Amount",
+    "exactAmountHint": "The backend requires the amount to equal the invoice total exactly.",
+    "paidAt": "Paid at",
+    "recordPayment": "Record payment",
+    "paymentRecorded": "Payment recorded.",
+    "regenerated": "Invoice regenerated."
+  },
+  "statement": {
+    "title": "Customer statement",
+    "backToCustomer": "Back to customer",
+    "generatedAt": "Generated {{date}}",
+    "linesTitle": "Statement lines",
+    "summaryTitle": "Statement summary",
+    "paid": "Paid",
+    "totalInvoiced": "Total invoiced",
+    "totalPaid": "Total paid",
+    "totalOutstanding": "Outstanding",
+    "unavailable": "The customer statement is not yet available from the backend."
+  },
+  "reports": {
+    "title": "Dashboards",
+    "description": "Server-provided metrics scoped to your permissions and organization access.",
+    "dashboardTabs": "Dashboard types",
+    "workshop": "Workshop",
+    "inventoryFinance": "Inventory & finance",
+    "training": "Training",
+    "aiData": "AI & data",
+    "filtersTitle": "Report filters",
+    "from": "From",
+    "to": "To",
+    "generatedAt": "Generated {{date}}",
+    "dataAsOf": "Data as of {{date}}",
+    "reconciliationTitle": "Reconciliation",
+    "filterFingerprint": "Filter fingerprint",
+    "metricCount": "Metrics returned",
+    "noDashboardAccess": "No dashboard is available for your permissions.",
+    "exportsLink": "Exports",
+    "dashboardLink": "Dashboards",
+    "exportsTitle": "Exports",
+    "createExportTitle": "Start an export",
+    "exportType": "Export type",
+    "format": "Format",
+    "customerId": "Customer ID",
+    "startExport": "Start export",
+    "exportCreated": "Export job created.",
+    "noExports": "No export jobs",
+    "noExportsDescription": "Create an export to see its server-side lifecycle here.",
+    "selectedExport": "Selected export",
+    "download": "Download",
+    "rowCount": "Rows",
+    "expiresAt": "Expires {{date}}",
+    "waitingForCompletion": "Waiting for completion…",
+    "sourceRecords": "{{count}} source records",
+    "unavailableTitle": "Not yet available",
+    "unavailableMessage": "This backend capability is not yet available. No placeholder data was loaded."
+  },
+  "audit": {
+    "title": "Audit events",
+    "detailTitle": "Audit event",
+    "backToList": "Back to audit events",
+    "occurredAt": "Occurred",
+    "action": "Action",
+    "entity": "Entity",
+    "entityType": "Entity type",
+    "entityId": "Entity ID",
+    "outcome": "Outcome",
+    "summary": "Summary",
+    "requestId": "Request ID",
+    "actor": "Actor",
+    "changes": "Redacted changes",
+    "emptyTitle": "No audit events",
+    "emptyDescription": "No events match the selected filters."
+  },
+  "predictions": {
+    "title": "Predictions",
+    "description": "Advisory rule-based suggestions and risk flags. Every result is advisory only — placing an order, grading or certifying a student always remains a separate, explicit human action.",
+    "advisoryNotice": "Advisory only — not an automatic decision",
+    "advisoryReminder": "This is a suggestion from the rule baseline (or optional ML model), never an automatic action. A person must review it and record an explicit decision before anything changes.",
+    "unavailableTitle": "Not yet available",
+    "unavailableMessage": "This backend capability is not yet available. No placeholder data was loaded.",
+    "list": {
+      "title": "Predictions",
+      "runNow": "Run the rule baseline now",
+      "runReorder": "Run reorder suggestions",
+      "runRisk": "Run training risk",
+      "runSuccess": "Run completed: {{count}} prediction(s) generated.",
+      "runFallbackNotice": "The ML service was unavailable, so this run fell back to the rule baseline.",
+      "typeFilter": "Type",
+      "statusFilter": "Status",
+      "riskLevelFilter": "Risk level",
+      "storeIdFilter": "Store ID",
+      "partIdFilter": "Part ID",
+      "studentIdFilter": "Student ID",
+      "courseIdFilter": "Course ID",
+      "columns": {
+        "generatedAt": "Generated",
+        "type": "Type",
+        "summary": "Summary",
+        "detail": "Detail",
+        "source": "Source",
+        "decision": "Decision"
+      },
+      "typeOptions": {
+        "REORDER_SUGGESTION": "Reorder suggestion",
+        "TRAINING_RISK": "Training risk"
+      },
+      "statusOptions": {
+        "ACTIVE": "Active",
+        "ACCEPTED": "Accepted",
+        "OVERRIDDEN": "Overridden",
+        "DISMISSED": "Dismissed",
+        "SUPERSEDED": "Superseded"
+      },
+      "riskLevelOptions": {
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "High"
+      },
+      "decideAction": "Decide",
+      "empty": {
+        "title": "No predictions found",
+        "description": "Try a different filter, or run the rule baseline now."
+      }
+    },
+    "detail": {
+      "title": "Prediction",
+      "backToList": "Back to predictions",
+      "generatedAt": "Generated",
+      "inputTitle": "Model input",
+      "resultTitle": "Suggested result",
+      "explanationTitle": "Explanation",
+      "decisionTitle": "Decision",
+      "evaluationTitle": "Evaluation outcome",
+      "reorder": {
+        "storeId": "Store ID",
+        "partId": "Part ID",
+        "partSku": "SKU",
+        "onHand": "On hand",
+        "reserved": "Reserved",
+        "available": "Available",
+        "minLevel": "Min level",
+        "maxLevel": "Max level",
+        "openPurchaseOrderQuantity": "Open PO quantity",
+        "averageWeeklyConsumption": "Avg weekly consumption",
+        "lookbackWeeks": "Lookback (weeks)",
+        "suggestedQuantity": "Suggested quantity",
+        "estimatedWeeksOfCover": "Estimated weeks of cover"
+      },
+      "trainingRisk": {
+        "studentId": "Student ID",
+        "courseId": "Course ID",
+        "attendancePercent": "Attendance %",
+        "missingAttendanceSessions": "Missing attendance sessions",
+        "unsignedAssessmentCount": "Unsigned assessments",
+        "unmetCompetencyCount": "Unmet competencies",
+        "riskLevel": "Risk level",
+        "flags": "Flags"
+      },
+      "flagOptions": {
+        "MISSING_ATTENDANCE": "Missing attendance",
+        "UNSIGNED_ASSESSMENTS": "Unsigned assessments",
+        "UNMET_COMPETENCIES": "Unmet competencies"
+      },
+      "decidedBy": "Decided by",
+      "decidedAt": "Decided at",
+      "overrideReason": "Override reason",
+      "overrideQuantity": "Override quantity",
+      "note": "Note",
+      "noDecision": "No decision recorded yet.",
+      "evaluationOutcomes": {
+        "PENDING": "Pending",
+        "CONFIRMED": "Confirmed",
+        "NOT_CONFIRMED": "Not confirmed",
+        "NOT_APPLICABLE": "Not applicable"
+      },
+      "noEvaluation": "Not yet evaluated."
+    },
+    "decide": {
+      "title": "Record a decision",
+      "decisionLabel": "Decision",
+      "decisionOptions": {
+        "ACCEPTED": "Accept",
+        "OVERRIDDEN": "Override",
+        "DISMISSED": "Dismiss"
+      },
+      "overrideReasonLabel": "Override reason",
+      "overrideReasonHint": "Required when overriding (3–500 characters).",
+      "overrideQuantityLabel": "Override quantity",
+      "noteLabel": "Note",
+      "submit": "Record decision",
+      "success": "Decision recorded.",
+      "advisoryReminder": "This records your decision only. Placing a purchase order, grading or certifying a student always remains a separate, explicit action."
+    },
+    "settings": {
+      "title": "Prediction settings",
+      "description": "Rule-baseline and ML toggle settings. The rule baseline always runs, regardless of this toggle.",
+      "reorderLookbackWeeksLabel": "Reorder lookback (weeks)",
+      "mlServiceEnabledLabel": "Enable optional ML service",
+      "mlServiceEnabledHint": "When enabled but offline, runs automatically fall back to the rule baseline.",
+      "baselineVersionLabel": "Rule baseline version",
+      "save": "Save settings",
+      "success": "Prediction settings updated."
+    }
+  }
+}
