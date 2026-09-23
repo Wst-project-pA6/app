@@ -158,14 +158,27 @@ describe('CertificatesService.issue', () => {
     it('replays an identical same-caller, same-body request without issuing a second certificate', async () => {
       const existing = certificate({ idempotency_key: 'a-valid-key-123' });
       const create = jest.fn();
+      const findScoped = jest.fn().mockResolvedValue(course());
       const { service, record } = build({
         repository: { findByIdempotencyKey: jest.fn().mockResolvedValue(existing), create },
+        coursesRepository: { findScoped },
       });
       const result = await service.issue({ studentId, courseId } as never, supervisorActor, 'a-valid-key-123');
       expect(result).toMatchObject({ id: certificateId });
       expect(result).not.toHaveProperty('verificationToken');
       expect(create).not.toHaveBeenCalled();
       expect(record).not.toHaveBeenCalled();
+      expect(findScoped).toHaveBeenCalledWith(existing.course_id, expect.anything(), expect.anything());
+    });
+
+    it('rejects a replay when the caller\'s current scope no longer covers the course', async () => {
+      const existing = certificate({ idempotency_key: 'a-valid-key-123' });
+      const { service } = build({
+        repository: { findByIdempotencyKey: jest.fn().mockResolvedValue(existing) },
+        coursesRepository: { findScoped: jest.fn().mockResolvedValue(null) },
+      });
+      await expect(service.issue({ studentId, courseId } as never, supervisorActor, 'a-valid-key-123'))
+        .rejects.toMatchObject({ statusCode: 404, code: ErrorCode.NOT_FOUND });
     });
 
     it('rejects a replayed key whose body differs (student, course, or issuer) with 409 IDEMPOTENCY_CONFLICT', async () => {

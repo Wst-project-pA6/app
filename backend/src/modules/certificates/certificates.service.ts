@@ -162,6 +162,8 @@ export class CertificatesService {
             if (existing.student_id !== dto.studentId || existing.course_id !== dto.courseId || existing.issued_by !== actor.id) {
               throw idempotencyConflict();
             }
+            const replayCourse = await this.coursesRepository.findScoped(existing.course_id, scopes, client);
+            if (!replayCourse) throw notFound();
             return { row: existing, rawToken: undefined };
           }
         }

@@ -36,6 +36,20 @@ const notFound = (): AppError =>
 const badRequest = (message: string): AppError =>
   new AppError(HttpStatus.BAD_REQUEST, ErrorCode.BAD_REQUEST, message);
 
+const idempotencyConflict = (): AppError =>
+  new AppError(HttpStatus.CONFLICT, ErrorCode.IDEMPOTENCY_CONFLICT, 'Idempotency key conflict');
+
+function mapPaymentConstraintError(error: unknown): never {
+  if (error instanceof AppError) {
+    throw error;
+  }
+  const dbError = error as { code?: string; constraint?: string };
+  if (dbError?.code === '23505' && dbError.constraint === 'uq_payment_refs_idempotency') {
+    throw idempotencyConflict();
+  }
+  throw error;
+}
+
 const validationFailed = (field: string, code: string, message: string): AppError =>
   new AppError(HttpStatus.UNPROCESSABLE_ENTITY, ErrorCode.VALIDATION_FAILED, 'Validation failed', [
     { field, code, message },
@@ -499,74 +513,70 @@ export class InvoicesService {
     idempotencyKey: string | undefined,
     actor: AuthenticatedPrincipal,
   ): Promise<PaymentReferenceDto> {
-    if (idempotencyKey !== undefined) {
-      if (idempotencyKey.length < 8 || idempotencyKey.length > 128) {
-        throw badRequest('Idempotency-Key must be between 8 and 128 characters');
-      }
+    if (idempotencyKey !== undefined && (idempotencyKey.length < 8 || idempotencyKey.length > 128)) {
+      throw badRequest('Idempotency-Key must be between 8 and 128 characters');
+    }
 
-      const existing = await this.repository.findPaymentByIdempotencyKey(null, idempotencyKey);
-      if (existing) {
-        if (!this.scopeService.hasScope(actor, existing.organization_scope_id)) {
+    try {
+      return await this.transaction.runInTransaction(async (client) => {
+        if (idempotencyKey) {
+          await this.repository.acquireIdempotencyLock(client, 'invoice_payment', idempotencyKey);
+          const existing = await this.repository.findPaymentByIdempotencyKey(client, idempotencyKey);
+          if (existing) {
+            if (!this.scopeService.hasScope(actor, existing.organization_scope_id)) {
+              throw notFound();
+            }
+
+            const isMatch =
+              existing.invoice_id === invoiceId &&
+              existing.method === dto.method &&
+              existing.reference === dto.reference &&
+              existing.amount_currency.trim() === dto.amount.currency.trim() &&
+              parseFloat(existing.amount_amount) === parseFloat(dto.amount.amount);
+
+            if (!isMatch) {
+              throw idempotencyConflict();
+            }
+
+            return this.mapPaymentReference(existing);
+          }
+        }
+
+        const invoice = await this.repository.findInvoiceById(client, invoiceId, true);
+        if (!invoice || !this.scopeService.hasScope(actor, invoice.organization_scope_id)) {
           throw notFound();
         }
 
-        const isMatch =
-          existing.invoice_id === invoiceId &&
-          existing.method === dto.method &&
-          existing.reference === dto.reference &&
-          existing.amount_currency.trim() === dto.amount.currency.trim() &&
-          parseFloat(existing.amount_amount) === parseFloat(dto.amount.amount);
-
-        if (isMatch) {
-          return this.mapPaymentReference(existing);
+        if (invoice.status !== InvoiceStatus.ISSUED) {
+          throw new AppError(
+            HttpStatus.CONFLICT,
+            ErrorCode.INVALID_STATE_TRANSITION,
+            'Invoice must be in ISSUED status to receive payment',
+          );
         }
 
-        throw new AppError(
-          HttpStatus.CONFLICT,
-          ErrorCode.IDEMPOTENCY_CONFLICT,
-          'Idempotency key conflict',
+        if (dto.amount.currency.trim() !== invoice.currency_code.trim()) {
+          throw new AppError(
+            HttpStatus.CONFLICT,
+            ErrorCode.PAYMENT_AMOUNT_MISMATCH,
+            'Payment currency does not match invoice currency',
+          );
+        }
+
+        const isExactAmount = await this.repository.checkAmountsMatch(
+          client,
+          dto.amount.amount,
+          invoice.total_amount,
         );
-      }
-    }
+        if (!isExactAmount) {
+          throw new AppError(
+            HttpStatus.CONFLICT,
+            ErrorCode.PAYMENT_AMOUNT_MISMATCH,
+            'Payment amount must equal invoice total',
+          );
+        }
 
-    return this.transaction.runInTransaction(async (client) => {
-      const invoice = await this.repository.findInvoiceById(client, invoiceId, true);
-      if (!invoice || !this.scopeService.hasScope(actor, invoice.organization_scope_id)) {
-        throw notFound();
-      }
-
-      if (invoice.status !== InvoiceStatus.ISSUED) {
-        throw new AppError(
-          HttpStatus.CONFLICT,
-          ErrorCode.INVALID_STATE_TRANSITION,
-          'Invoice must be in ISSUED status to receive payment',
-        );
-      }
-
-      if (dto.amount.currency.trim() !== invoice.currency_code.trim()) {
-        throw new AppError(
-          HttpStatus.CONFLICT,
-          ErrorCode.PAYMENT_AMOUNT_MISMATCH,
-          'Payment currency does not match invoice currency',
-        );
-      }
-
-      const isExactAmount = await this.repository.checkAmountsMatch(
-        client,
-        dto.amount.amount,
-        invoice.total_amount,
-      );
-      if (!isExactAmount) {
-        throw new AppError(
-          HttpStatus.CONFLICT,
-          ErrorCode.PAYMENT_AMOUNT_MISMATCH,
-          'Payment amount must equal invoice total',
-        );
-      }
-
-      let paymentRef: PaymentReferenceRow;
-      try {
-        paymentRef = await this.repository.recordPayment(
+        const paymentRef: PaymentReferenceRow = await this.repository.recordPayment(
           client,
           invoiceId,
           {
@@ -579,29 +589,22 @@ export class InvoicesService {
           },
           actor.id,
         );
-      } catch (err: unknown) {
-        if ((err as { code?: string; constraint?: string })?.code === '23505') {
-          throw new AppError(
-            HttpStatus.CONFLICT,
-            ErrorCode.IDEMPOTENCY_CONFLICT,
-            'Idempotency key conflict',
-          );
-        }
-        throw err;
-      }
 
-      await this.audit.record(client, {
-        actorUserId: actor.id,
-        actorRoles: actor.roles,
-        action: 'PAYMENT.RECORD',
-        entityType: 'PAYMENT_REFERENCE',
-        entityId: paymentRef.id,
-        outcome: 'SUCCESS',
-        summary: `Payment recorded for invoice ${invoice.invoice_number ?? invoiceId}`,
+        await this.audit.record(client, {
+          actorUserId: actor.id,
+          actorRoles: actor.roles,
+          action: 'PAYMENT.RECORD',
+          entityType: 'PAYMENT_REFERENCE',
+          entityId: paymentRef.id,
+          outcome: 'SUCCESS',
+          summary: `Payment recorded for invoice ${invoice.invoice_number ?? invoiceId}`,
+        });
+
+        return this.mapPaymentReference(paymentRef);
       });
-
-      return this.mapPaymentReference(paymentRef);
-    });
+    } catch (error) {
+      return mapPaymentConstraintError(error);
+    }
   }
 
   async getCustomerStatement(

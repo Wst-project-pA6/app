@@ -11,7 +11,7 @@ import {
   InvoiceStatus,
   PaymentMethod,
 } from './dto/invoice.dto';
-import { InvoicesRepository } from './invoices.repository';
+import { InvoicesRepository, PaymentReferenceRow } from './invoices.repository';
 import { InvoicesService } from './invoices.service';
 
 describe('InvoicesService', () => {
@@ -89,8 +89,14 @@ describe('InvoicesService', () => {
   let audit: { record: jest.Mock };
   let transaction: TransactionService;
   let service: InvoicesService;
+  let acquireIdempotencyLockMock: jest.Mock;
+  let findPaymentByIdempotencyKeyMock: jest.Mock;
+  let recordPaymentMock: jest.Mock;
 
   beforeEach(() => {
+    acquireIdempotencyLockMock = jest.fn().mockResolvedValue(undefined);
+    findPaymentByIdempotencyKeyMock = jest.fn().mockResolvedValue(null);
+    recordPaymentMock = jest.fn();
     repository = {
       getFinanceSettings: jest.fn().mockResolvedValue(financeSettings),
       findJobForInvoice: jest.fn().mockResolvedValue(sampleJob),
@@ -155,9 +161,10 @@ describe('InvoicesService', () => {
       calculateDiscountTotal: jest.fn(),
       transitionToIssued: jest.fn(),
       transitionToVoid: jest.fn(),
-      findPaymentByIdempotencyKey: jest.fn().mockResolvedValue(null),
+      acquireIdempotencyLock: acquireIdempotencyLockMock,
+      findPaymentByIdempotencyKey: findPaymentByIdempotencyKeyMock,
       checkAmountsMatch: jest.fn().mockResolvedValue(true),
-      recordPayment: jest.fn(),
+      recordPayment: recordPaymentMock,
       findCustomerForStatement: jest.fn().mockResolvedValue({
         id: customerId,
         organization_scope_id: scopeId,
@@ -642,9 +649,9 @@ describe('InvoicesService', () => {
       organization_scope_id: scopeId,
     };
 
-    repository.findPaymentByIdempotencyKey.mockResolvedValueOnce(existingPayment);
+    findPaymentByIdempotencyKeyMock.mockResolvedValueOnce(existingPayment);
 
-    // Matching replay -> 201 with existing record
+    // Matching replay -> 201 with existing record, checked inside the locked transaction
     const replayed = await service.recordPayment(
       invoiceId,
       {
@@ -657,10 +664,21 @@ describe('InvoicesService', () => {
       actor,
     );
     expect(replayed.id).toBe('pay-existing');
-    expect((transaction.runInTransaction as jest.Mock).mock.calls).toHaveLength(0);
+    expect((transaction.runInTransaction as jest.Mock).mock.calls).toHaveLength(1);
+    expect(acquireIdempotencyLockMock).toHaveBeenCalledWith(
+      expect.anything(),
+      'invoice_payment',
+      'same-key-1234',
+    );
+    expect(findPaymentByIdempotencyKeyMock).toHaveBeenNthCalledWith(1, expect.anything(), 'same-key-1234');
+    expect(findPaymentByIdempotencyKeyMock.mock.calls[0][0]).not.toBeNull();
+    expect(acquireIdempotencyLockMock.mock.invocationCallOrder[0]).toBeLessThan(
+      findPaymentByIdempotencyKeyMock.mock.invocationCallOrder[0],
+    );
+    expect(recordPaymentMock).not.toHaveBeenCalled();
 
-    // Conflicting reuse with different amount
-    repository.findPaymentByIdempotencyKey.mockResolvedValueOnce(existingPayment);
+    // Conflicting reuse with different amount -> 409, never re-executes the mutation
+    findPaymentByIdempotencyKeyMock.mockResolvedValueOnce(existingPayment);
     await expect(
       service.recordPayment(
         invoiceId,
@@ -676,6 +694,141 @@ describe('InvoicesService', () => {
     ).rejects.toMatchObject({
       statusCode: HttpStatus.CONFLICT,
       code: ErrorCode.IDEMPOTENCY_CONFLICT,
+    });
+    expect(recordPaymentMock).not.toHaveBeenCalled();
+  });
+
+  // 14b. Replay re-checks the caller's current scope/authorization
+  it('rejects a payment replay when the caller no longer has scope over the existing payment', async () => {
+    const existingPayment = {
+      id: 'pay-existing',
+      invoice_id: invoiceId,
+      method: PaymentMethod.CASH,
+      reference: 'CASH-001',
+      amount_amount: '513.0000',
+      amount_currency: 'EGP',
+      paid_at: new Date('2026-09-22T09:00:00Z'),
+      idempotency_key: 'same-key-1234',
+      created_at: new Date('2026-09-22T09:00:00Z'),
+      created_by: actor.id,
+      job_id: jobId,
+      organization_scope_id: otherScopeId,
+    };
+    repository.findPaymentByIdempotencyKey.mockResolvedValueOnce(existingPayment);
+
+    await expect(
+      service.recordPayment(
+        invoiceId,
+        {
+          method: PaymentMethod.CASH,
+          reference: 'CASH-001',
+          amount: { amount: '513.0000', currency: 'EGP' },
+          paidAt: '2026-09-22T09:00:00Z',
+        },
+        'same-key-1234',
+        actor,
+      ),
+    ).rejects.toMatchObject({ statusCode: HttpStatus.NOT_FOUND, code: ErrorCode.NOT_FOUND });
+  });
+
+  // 14c. DB-level unique-constraint conflict is mapped to IDEMPOTENCY_CONFLICT (defense-in-depth)
+  it('maps a uq_payment_refs_idempotency constraint violation to 409 IDEMPOTENCY_CONFLICT', async () => {
+    repository.findInvoiceById.mockResolvedValueOnce({
+      ...sampleInvoice,
+      status: InvoiceStatus.ISSUED,
+      invoice_number: 'INV-2026-000001',
+      total_amount: '513.0000',
+    });
+    repository.recordPayment.mockRejectedValueOnce(
+      Object.assign(new Error('duplicate key'), {
+        code: '23505',
+        constraint: 'uq_payment_refs_idempotency',
+      }),
+    );
+
+    await expect(
+      service.recordPayment(
+        invoiceId,
+        {
+          method: PaymentMethod.CASH,
+          reference: 'CASH-001',
+          amount: { amount: '513.0000', currency: 'EGP' },
+          paidAt: '2026-09-22T09:00:00Z',
+        },
+        'race-key-12345',
+        actor,
+      ),
+    ).rejects.toMatchObject({
+      statusCode: HttpStatus.CONFLICT,
+      code: ErrorCode.IDEMPOTENCY_CONFLICT,
+    });
+  });
+
+  // 14d. Real concurrency: two overlapping recordPayment calls sharing the same idempotency
+  // key and body. The advisory lock forces the second caller to wait until the first commits,
+  // so it observes the winner's row and replays it -- exactly one payment is ever recorded.
+  describe('concurrency: two overlapping recordPayment calls with the same idempotency key', () => {
+    it('CRITICAL: exactly one payment is recorded and both callers receive the same result', async () => {
+      repository.findInvoiceById.mockResolvedValue({
+        ...sampleInvoice,
+        status: InvoiceStatus.ISSUED,
+        invoice_number: 'INV-2026-000001',
+        total_amount: '513.0000',
+      });
+
+      let firstCallerHasLock = false;
+      let releaseWaiter: (() => void) | undefined;
+      const gate = new Promise<void>((resolve) => {
+        releaseWaiter = resolve;
+      });
+      let committed: (PaymentReferenceRow & { job_id: string; organization_scope_id: string }) | null =
+        null;
+
+      acquireIdempotencyLockMock.mockImplementation(async () => {
+        if (!firstCallerHasLock) {
+          firstCallerHasLock = true;
+        } else {
+          await gate;
+        }
+      });
+      findPaymentByIdempotencyKeyMock.mockImplementation(async () => committed);
+      recordPaymentMock.mockImplementation(async (_client, invId, data, actorId) => {
+        const row = {
+          id: 'pay-winner',
+          invoice_id: invId,
+          method: data.method,
+          reference: data.reference,
+          amount_amount: data.amountAmount,
+          amount_currency: data.amountCurrency,
+          paid_at: new Date(data.paidAt),
+          idempotency_key: data.idempotencyKey ?? null,
+          created_at: new Date('2026-09-22T09:00:00Z'),
+          created_by: actorId,
+        };
+        committed = { ...row, job_id: jobId, organization_scope_id: scopeId };
+        releaseWaiter?.();
+        return row;
+      });
+
+      const dto = {
+        method: PaymentMethod.CASH,
+        reference: 'CASH-001',
+        amount: { amount: '513.0000', currency: 'EGP' },
+        paidAt: '2026-09-22T09:00:00Z',
+      };
+
+      const [outcomeA, outcomeB] = await Promise.allSettled([
+        service.recordPayment(invoiceId, dto, 'race-same-key-1', actor),
+        service.recordPayment(invoiceId, dto, 'race-same-key-1', actor),
+      ]);
+
+      expect(outcomeA.status).toBe('fulfilled');
+      expect(outcomeB.status).toBe('fulfilled');
+      const idA = outcomeA.status === 'fulfilled' ? outcomeA.value.id : undefined;
+      const idB = outcomeB.status === 'fulfilled' ? outcomeB.value.id : undefined;
+      expect(idA).toBe('pay-winner');
+      expect(idB).toBe('pay-winner');
+      expect(recordPaymentMock).toHaveBeenCalledTimes(1);
     });
   });
 

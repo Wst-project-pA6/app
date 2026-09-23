@@ -91,7 +91,9 @@ npm run test:e2e            # requires both dev servers running (see e2e/README.
 
 The backend now also includes shared scheduling-conflict detection, attendance, assessments, competencies, certificates (with public verification), dashboards/exports, and an AI predictions framework (rule-baseline + optional pluggable ML service, always advisory). The frontend already had screens for this full scope built ahead of time — as each backend piece lands, the corresponding screen switches from an honest "not yet available" state to live data automatically, with no frontend changes needed. AI predictions never mutate operational data automatically — every result is advisory only, requiring an explicit human decision.
 
-Still pending on the backend: idempotency/concurrency hardening audit, localization, a dedicated e2e test pass, Docker/seed consolidation, and a final OpenAPI audit.
+The backend has also completed a full idempotency/optimistic-concurrency audit across every mutating endpoint: fixed a genuine payment-replay race, confirmed 16 other endpoints/resources already handle it correctly, and flagged two pre-existing gaps for a future session (part-reservations idempotency has no DB-backed dedup yet; finance-settings config endpoints are unimplemented).
+
+Still pending on the backend: localization, a dedicated e2e test pass, Docker/seed consolidation, and a final OpenAPI audit.
 
 ## Docker
 

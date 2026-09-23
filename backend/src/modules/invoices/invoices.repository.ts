@@ -693,6 +693,10 @@ export class InvoicesRepository {
     return result.rows[0] ?? null;
   }
 
+  async acquireIdempotencyLock(client: PoolClient, namespace: string, key: string): Promise<void> {
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1), hashtext($2))', [namespace, key]);
+  }
+
   async findPaymentByIdempotencyKey(
     client: PoolClient | null,
     idempotencyKey: string,
