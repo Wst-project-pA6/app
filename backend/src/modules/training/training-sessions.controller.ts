@@ -1,8 +1,14 @@
-import { Body, Controller, Get, Param, ParseUUIDPipe, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, ParseUUIDPipe, Patch, Post, Query } from '@nestjs/common';
 import { Permissions } from '../../common/auth/permissions.decorator';
 import { CurrentUser } from '../auth/current-user.decorator';
 import type { AuthenticatedPrincipal } from '../auth/authenticated-principal';
-import { CreateTrainingSessionDto, TrainingSessionListQuery, UpdateTrainingSessionDto } from './dto/training-session.dto';
+import {
+  ConflictOverrideRequestDto,
+  CreateTrainingSessionDto,
+  SessionTransitionDto,
+  TrainingSessionListQuery,
+  UpdateTrainingSessionDto,
+} from './dto/training-session.dto';
 import { TrainingSessionsService } from './training-sessions.service';
 
 @Controller()
@@ -38,5 +44,36 @@ export class TrainingSessionsController {
     @CurrentUser() actor: AuthenticatedPrincipal,
   ) {
     return this.service.update(sessionId, dto, actor);
+  }
+
+  @Post('training-sessions/:sessionId/conflict-check')
+  @HttpCode(HttpStatus.OK)
+  @Permissions('training.manage', 'training.override-conflict')
+  checkConflicts(
+    @Param('sessionId', new ParseUUIDPipe()) sessionId: string,
+    @CurrentUser() actor: AuthenticatedPrincipal,
+  ) {
+    return this.service.checkConflicts(sessionId, actor);
+  }
+
+  @Post('training-sessions/:sessionId/conflict-overrides')
+  @Permissions('training.override-conflict')
+  createOverrides(
+    @Param('sessionId', new ParseUUIDPipe()) sessionId: string,
+    @Body() dto: ConflictOverrideRequestDto,
+    @CurrentUser() actor: AuthenticatedPrincipal,
+  ) {
+    return this.service.createOverrides(sessionId, dto, actor);
+  }
+
+  @Post('training-sessions/:sessionId/transitions')
+  @HttpCode(HttpStatus.OK)
+  @Permissions('training.publish', 'training.manage')
+  transition(
+    @Param('sessionId', new ParseUUIDPipe()) sessionId: string,
+    @Body() dto: SessionTransitionDto,
+    @CurrentUser() actor: AuthenticatedPrincipal,
+  ) {
+    return this.service.transition(sessionId, dto, actor);
   }
 }

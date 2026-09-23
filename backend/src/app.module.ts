@@ -25,6 +25,10 @@ import { InventoryModule } from './modules/inventory/inventory.module';
 import { PurchasingModule } from './modules/purchasing/purchasing.module';
 import { InvoicesModule } from './modules/invoices/invoices.module';
 import { TrainingModule } from './modules/training/training.module';
+import { DashboardsModule } from './modules/dashboards/dashboards.module';
+import { ExportsModule } from './modules/exports/exports.module';
+import { CertificatesModule } from './modules/certificates/certificates.module';
+import { PredictionsModule } from './modules/predictions/predictions.module';
 
 @Module({
   imports: [
@@ -51,6 +55,11 @@ import { TrainingModule } from './modules/training/training.module';
     PurchasingModule,
     InvoicesModule,
     TrainingModule,
+    DashboardsModule,
+    ExportsModule,
+    CertificatesModule,
+    PredictionsModule,
+
   ],
   controllers: [AppController],
   providers: [

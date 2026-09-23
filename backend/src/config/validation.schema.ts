@@ -62,6 +62,13 @@ export const validationSchema = Joi.object({
       return Buffer.byteLength(value, 'utf8') >= 32 ? value : helpers.error('string.min');
     })
     .optional(),
+  EXPORTS_STORAGE_DIR: Joi.string().default('storage/exports'),
+  // How long a COMPLETED export's generated file (and its expiresAt) remains downloadable.
+  EXPORTS_RETENTION_MS: Joi.number().integer().min(60000).default(24 * 60 * 60 * 1000),
+  // Optional outbound AI/ML service for predictions. Left empty, the prediction framework runs
+  // on the deterministic rule baseline only — never a hard dependency.
+  AI_SERVICE_URL: Joi.string().uri({ scheme: ['http', 'https'] }).allow('').default(''),
+  AI_SERVICE_TIMEOUT_MS: Joi.number().integer().min(100).max(30000).default(3000),
 })
   .unknown(true)
   .custom(validateBaseUrl);

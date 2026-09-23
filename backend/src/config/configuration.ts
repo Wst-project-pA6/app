@@ -26,4 +26,14 @@ export default () => ({
     storageDir: process.env.ATTACHMENTS_STORAGE_DIR ?? 'storage/attachments',
     signingSecret: process.env.ATTACHMENTS_SIGNING_SECRET ?? process.env.AUTH_JWT_SECRET ?? '',
   },
+  exports: {
+    storageDir: process.env.EXPORTS_STORAGE_DIR ?? 'storage/exports',
+    retentionMs: parseInt(process.env.EXPORTS_RETENTION_MS ?? String(24 * 60 * 60 * 1000), 10),
+  },
+  aiService: {
+    // Empty/unset means "no AI service configured" — the HTTP client short-circuits to
+    // unavailable (never attempts a network call), independent of prediction_settings.ml_service_enabled.
+    url: process.env.AI_SERVICE_URL ?? '',
+    timeoutMs: parseInt(process.env.AI_SERVICE_TIMEOUT_MS ?? '3000', 10),
+  },
 });

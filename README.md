@@ -89,7 +89,9 @@ npm run test:e2e            # requires both dev servers running (see e2e/README.
 
 ## What's implemented vs. advisory-only
 
-The frontend includes screens for the full product scope (training scheduling conflicts/overrides, attendance, assessments, competencies, certificates, full dashboards, AI predictions, etc.). Where the corresponding backend endpoint isn't live yet, the UI shows an honest "not yet available" state rather than fake data — it will light up automatically as backend work continues. AI predictions are always advisory: they never mutate operational data automatically.
+The backend now also includes shared scheduling-conflict detection, attendance, assessments, competencies, certificates (with public verification), dashboards/exports, and an AI predictions framework (rule-baseline + optional pluggable ML service, always advisory). The frontend already had screens for this full scope built ahead of time — as each backend piece lands, the corresponding screen switches from an honest "not yet available" state to live data automatically, with no frontend changes needed. AI predictions never mutate operational data automatically — every result is advisory only, requiring an explicit human decision.
+
+Still pending on the backend: idempotency/concurrency hardening audit, localization, a dedicated e2e test pass, Docker/seed consolidation, and a final OpenAPI audit.
 
 ## Docker
 
